@@ -1,0 +1,29 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: rgb(43, 43, 43);
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+body{
+  background: rgb(0,2,36);
+  background: linear-gradient(90deg, rgba(253, 201, 255, 0.815) 0%, rgb(248, 164, 164) 44%, rgb(202, 133, 133) 100%); 
+}
+img{
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  border-radius: 10px;
+}
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
