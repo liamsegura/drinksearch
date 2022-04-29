@@ -75,7 +75,7 @@ body{
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 0px solid #86868650;
+  border: 1px none #86868650;
   background: #86868650;
   text-align: center;
   color: #fff;
@@ -85,13 +85,6 @@ body{
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
-  width: 30%;
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 @media (max-width:600px) {
   .search {
