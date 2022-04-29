@@ -65,11 +65,11 @@ body{
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #797979;
+  color: #1a1a1a;
 }
 
 .searchTerm:focus{
-  color: #ccaeae3f;
+  color: #1a1a1a;
 }
 
 .searchButton {
@@ -94,8 +94,12 @@ body{
 }
 
 @media (max-width:600px) {
+  .search {
+    width: 30%;
+    display: flex;
+  }
 .container{
-  padding: 0;
+  padding: 0 100px;
   display: block;
   justify-content: center;
   text-align: center;
