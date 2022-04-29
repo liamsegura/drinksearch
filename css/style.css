@@ -95,7 +95,7 @@ body{
   }
 .container{
   padding: 0 100px;
-  display: block;
+  display: flex;
   justify-content: center;
   text-align: center;
 }
