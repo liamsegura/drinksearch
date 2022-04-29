@@ -28,6 +28,9 @@ img{
 #mid-left{
  width: 50%;
 } 
+h2{
+  font-weight: 300;
+}
 
 /******************************************
 /* ADDITIONAL STYLES
@@ -56,24 +59,24 @@ body{
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #868686;
+  border: 3px solid #86868650;
   border-right: none;
   padding: 5px;
   height: 36px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #868686;
+  color: #797979;
 }
 
 .searchTerm:focus{
-  color: #868686;
+  color: #ccaeae3f;
 }
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #868686;
-  background: #868686;
+  border: 0px solid #86868650;
+  background: #86868650;
   text-align: center;
   color: #fff;
   border-radius: 0 5px 5px 0;
@@ -90,7 +93,7 @@ body{
   transform: translate(-50%, -50%);
 }
 
-@media (max-width:480px) {
+@media (max-width:600px) {
 .container{
   padding: 0;
   display: block;
@@ -109,9 +112,10 @@ body{
   padding: 20px;
 }
 img{
-  width: 100%;
+  width: 60%;
 }
 #mid-left{
   width: 100%;
+  padding: 20px 40px 20px 40px;
  } 
 }
