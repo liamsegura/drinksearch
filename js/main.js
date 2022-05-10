@@ -1,58 +1,80 @@
+//pop up section
 const model = document.querySelector('.model')
+//container with results from search
 const previews = document.querySelectorAll('.card-container')
+//image for popup model
 const original = document.querySelector('.full-img')
+//instructions for popup model 
 const imgText = document.querySelector('.caption')
 
+//event listener for when clicking on container, to activate and add the popup model
 previews.forEach(preview => {
   preview.addEventListener('click', () => {
+    //adds open class to display as block when clicked
       model.classList.add('open')
       original.classList.add('open')
-      original.src = 'https://via.placeholder.com/650'
   })
 })
-
+//event listener for when clicking off of the pop up model
 model.addEventListener('click', (e) => {
+  //if the element clicked contains model class, remove the open class
   if(e.target.classList.contains('model')){
       model.classList.remove('open')
       original.classList.remove('open')
   }
 })
-//The user will enter a cocktail. Get a cocktail name, photo, and instructions and place them in the DOM
+//search bar button
 document.querySelector('button').addEventListener('click', getDrink)
+//search bar enterkey(i know i have done this the long way)
 document.querySelector('input').addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
     getDrink()
   }
 });
-// document.querySelector('.main-container').addEventListener('click', drinkInfo)
 
+//fetch function
 function getDrink(){
+  //takes value from the search bar
     let drink = document.querySelector('input').value 
+  //replaces spaces with underscores for https
     let drinkUnderscore = drink.replace(/ /g,"_")
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkUnderscore}`)
                   .then(res => res.json()) // parse response as JSON
                   .then(data => {
-                    previews.forEach(preview => {
-                      preview.classList.add('show')
-                    })
-                    previews.forEach(preview => {
-                      preview.addEventListener('click', () => {
-                          model.classList.add('open')
-                          original.classList.add('open')
-                          original.src = data.drinks[0].strDrinkThumb
-                          imgText.innerText = data.drinks[0].strInstructions
-                      })
-                    })
-                    
                     console.log(data.drinks[0])
+                    //adds API search results to the DOM
                     document.querySelector('h2').innerText = data.drinks[0].strDrink
                     document.querySelector('img').src = data.drinks[0].strDrinkThumb
                     document.querySelector('h3').innerText = data.drinks[0].strInstructions
+
+                       //add show class to containers for search results - display:flex when drink is searched for(originally display:block)
+                       previews.forEach(preview => {
+                        preview.classList.add('show')
+                      })
+                      //event listeners for each results
+                      previews.forEach(preview => {
+                        preview.addEventListener('click', () => {
+                          //adds open class to display model and image
+                            model.classList.add('open')
+                            original.classList.add('open')
+                            //adds data from api into the DOM
+                            original.src = data.drinks[0].strDrinkThumb
+                            imgText.innerText = data.drinks[0].strInstructions
+                        })
+                      })
+                      
                   })
                   .catch(err => {
                       console.log(`error ${err}`)
                  });
     }
+
+
+//TEST CODE BELOW
+
+
+// document.querySelector('.main-container').addEventListener('click', drinkInfo)
+
 
 // function drinkInfo(){
 //   let drink = document.querySelector('input').value 
