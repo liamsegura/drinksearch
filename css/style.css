@@ -56,6 +56,32 @@ body{
   opacity: 1;
   pointer-events: all;
 }
+.model img{
+  width: 300px;
+  height: 300px;
+}
+
+.full-img{
+  position: absolute;
+  height: 70%;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%)scale(0.5);
+  transition: all 0.25s ease-out;
+}
+
+.full-img.open{
+  transform: translate(-50%, -50%)scale(1);
+}
+
+.model p{
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, -5%);
+}
 
 /******************************************
 /* ADDITIONAL STYLES
