@@ -43,9 +43,9 @@ function getDrink(){
                   .then(data => {
                     console.log(data.drinks[0])
                     //adds API search results to the DOM
-                    document.querySelector('h2').innerText = data.drinks[0].strDrink
-                    document.querySelector('img').src = data.drinks[0].strDrinkThumb
-                    document.querySelector('h3').innerText = data.drinks[0].strInstructions
+                    document.querySelector('.drink-name').innerText = data.drinks[0].strDrink
+                    document.querySelector('.card-img').src = data.drinks[0].strDrinkThumb
+                    document.querySelector('.drink-instructions').innerText = data.drinks[0].strInstructions
 
                        //add show class to containers for search results - display:flex when drink is searched for(originally display:block)
                        previews.forEach(preview => {
