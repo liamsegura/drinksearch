@@ -35,6 +35,15 @@ function getDrink(){
                     previews.forEach(preview => {
                       preview.classList.add('show')
                     })
+                    previews.forEach(preview => {
+                      preview.addEventListener('click', () => {
+                          model.classList.add('open')
+                          original.classList.add('open')
+                          original.src = data.drinks[0].strDrinkThumb
+                          imgText.innerText = data.drinks[0].strInstructions
+                      })
+                    })
+                    
                     console.log(data.drinks[0])
                     document.querySelector('h2').innerText = data.drinks[0].strDrink
                     document.querySelector('img').src = data.drinks[0].strDrinkThumb
