@@ -120,22 +120,10 @@ function getDrink(){
                         // item.style.backgroundColor = "rgb(233, 232, 232)";
                         // item.style.marginTop = "5px"
                         
-                        //event listeners for each results
-                        item.addEventListener('click', () => {
-                          console.log('test')
-                          //adds open class to display model and image
-                          console.log(img)
-                            model.classList.add('open')
-                            original.classList.add('open')
-                            //adds data from api into the DOM
-                            original.src = object.strDrinkThumb
-                            imgText.innerText = object.strDrink
-                        })
-                        list.appendChild(item)
+                        
+                        // list.appendChild(item)
                       })
-                    })
-                    
-                     
+                    }) 
                     .catch(err => {
                         console.log(`error ${err}`)
                    });
@@ -145,12 +133,23 @@ const createItem = (result) => {
             newLi.className = 'card-container'
             newLi.innerHTML = 
             `
-            <img class="card-img" src="${ newLi.strDrinkThumb }" alt="${ newLi.strDrink }">
+            <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
             <div class="name-ingredients">
-              <h2 class="drink-name">${ newLi.strDrink }</h2>
-              <h3 class="drink-instructions">${ newLi.strInstructions }</h3>
+              <h2 class="drink-name">${ result.strDrink }</h2>
+              <h3 class="drink-instructions">${ result.strInstructions }</h3>
             </div>
-          `
+            `
+          // event listeners for each results
+                        newLi.addEventListener('click', () => {
+                          console.log('test')
+                          //adds open class to display model and image
+                          console.log(img)
+                            model.classList.add('open')
+                            original.classList.add('open')
+                            //adds data from api into the DOM
+                            original.src = result.strDrinkThumb
+                            imgText.innerText = result.strDrink
+                        })
           return newLi
       }
   //   preview.addEventListener('click', () => {
