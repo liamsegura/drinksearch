@@ -48,7 +48,7 @@ li{
   font-weight: 300;
 }
 .model{
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
   left: 0;
@@ -180,7 +180,6 @@ li{
   padding: 10px;
 }
 .card-container img{
-  width: 60%;
     max-width: 100px;
     max-height: 100px;
 }
@@ -196,7 +195,7 @@ li{
  }
 
 .model{
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
   left: 0;

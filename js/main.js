@@ -45,9 +45,11 @@ function getDrink(){
     let drink = document.querySelector('input').value 
   //replaces spaces with underscores for https
     let drinkUnderscore = drink.replace(/ /g,"_")
+    list.innerHtml = ""
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkUnderscore}`)
                   .then(res => res.json()) // parse response as JSON
                   .then(data => {
+                    list.innerHtml = ""
                     console.log(data.drinks[0])
                     //adds API search results to the DOM
                     document.querySelector('.drink-name').innerText = data.drinks[0].strDrink
@@ -83,20 +85,21 @@ function getDrink(){
   'r','s','t','u','v','w','x','y','z'].forEach(choice => document.getElementById(choice).addEventListener('click', () => letterChoice(choice)))
 
     function letterChoice(choice){
+      list.innerHTML = ""
               fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${choice}`)
                     .then(res => res.json()) // parse response as JSON
                     .then(data => {
-                      console.log()
+                      list.innerHtml = ""
                       for(object of data.drinks){
                         console.log(object.strDrink)
                         const item = document.createElement('li')
                         const name = document.createElement('h2')
                         const img = document.createElement('img')
-                        const ingredients = document.createElement('p')
-
+                        // const ingredients = document.createElement('p')
                         img.style.maxWidth = "140px";
                         img.style.maxWeight = "140px";
                         img.style.borderRadius = "50%";
+                        img.style.margin = "0"
                         img.src = object.strDrinkThumb
 
                         item.appendChild(img)
@@ -108,14 +111,16 @@ function getDrink(){
 
                         item.classList.add('card-container')
                         item.style.display = "flex"
-                        item.style.alignItems = "center";
-                        item.style.justifyContent = "center";
+                        item.style.alignItems = "start";
+                        item.style.justifyContent = "start";
                         item.style.cursor = "pointer";
                         item.style.padding = "10px";
                         item.style.borderRadius = "10px";
                         item.style.backgroundColor = "rgb(233, 232, 232)";
-                  
-                        list.addEventListener('click', () => {
+                        item.style.marginTop = "5px"
+                        
+                        //event listeners for each results
+                        item.addEventListener('click', () => {
                           console.log('test')
                           //adds open class to display model and image
                           console.log(img)
@@ -126,19 +131,27 @@ function getDrink(){
                             imgText.innerText = object.strDrink
                         })
                         list.appendChild(item)
-                         //event listeners for each results
-                      }
-                     
-                      // document.querySelector('h2').innerText = data.drinks[0].strDrink
-                      // document.querySelector('img').src = data.drinks[0].strDrinkThumb
-                      // document.querySelector('h3').innerText = data.drinks[0].strInstructions
+                    }
                     })
-  
+                    
                      
                     .catch(err => {
                         console.log(`error ${err}`)
                    });
       }
+
+  // //event listeners for each results
+  // document.getElementsByClassName('c').forEach(preview => {
+  //   preview.addEventListener('click', () => {
+  //     //adds open class to display model and image
+  //       model.classList.add('open')
+  //       original.classList.add('open')
+  //       //adds data from api into the DOM
+  //       original.src = data.drinks[0].strDrinkThumb
+  //       imgText.innerText = data.drinks[0].strInstructions
+  //   })
+  // })
+
 //TEST CODE BELOW
 
 
