@@ -27,6 +27,13 @@ html{
 body{
   background: #f3f3f3;
 }
+ul{
+  list-style: none;
+  padding: 0;
+}
+li{
+  display: flex;
+}
 .card-container img{
   display: block;
   margin: 0 auto;

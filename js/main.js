@@ -6,6 +6,13 @@ const previews = document.querySelectorAll('.card-container')
 const original = document.querySelector('.full-img')
 //instructions for popup model 
 const imgText = document.querySelector('.caption')
+//results list
+const list = document.querySelector('.results')
+
+const drinkName = document.querySelector('.drink-name')
+const drinkImg = document.querySelector('.card-img')
+const drinkInstr = document.querySelector('.drink-instructions')
+
 
 //event listener for when clicking on container, to activate and add the popup model
 previews.forEach(preview => {
@@ -46,7 +53,13 @@ function getDrink(){
                     document.querySelector('.drink-name').innerText = data.drinks[0].strDrink
                     document.querySelector('.card-img').src = data.drinks[0].strDrinkThumb
                     document.querySelector('.drink-instructions').innerText = data.drinks[0].strInstructions
-
+                    // for(object of data.drinks){
+                    //   // console.log(object.strDrink)
+                    // const item = document.createElement('li')
+                    // item.innerText = object.strDrink
+                    // console.log(item)
+                    // // //  item.classList.add('card-container')
+                    // list.appendChild(item)
                        //add show class to containers for search results - display:flex when drink is searched for(originally display:block)
                        previews.forEach(preview => {
                         preview.classList.add('show')
@@ -68,6 +81,31 @@ function getDrink(){
                       console.log(`error ${err}`)
                  });
     }
+
+   //CODE FOR APENDING TO LIST
+
+
+//     function searchA(){
+//               fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a`)
+//                     .then(res => res.json()) // parse response as JSON
+//                     .then(data => {
+//                       console.log(data.drinks)
+//                       for(object of data.drinks){
+//                         // console.log(object.strDrink)
+//                         const item = document.createElement('li')
+//                         item.innerText = object.strDrink
+//                         item.classList.add('card-container')
+//                         list.appendChild(item)
+//                       }
+//                       // document.querySelector('h2').innerText = data.drinks[0].strDrink
+//                       // document.querySelector('img').src = data.drinks[0].strDrinkThumb
+//                       // document.querySelector('h3').innerText = data.drinks[0].strInstructions
+//                     })
+//                     .catch(err => {
+//                         console.log(`error ${err}`)
+//                    });
+//       }
+// searchA()
 
 
 //TEST CODE BELOW
