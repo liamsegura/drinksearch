@@ -9,11 +9,6 @@ const imgText = document.querySelector('.caption')
 //results list
 const list = document.querySelector('.results')
 
-const drinkName = document.querySelector('.drink-name')
-const drinkImg = document.querySelector('.card-img')
-const drinkInstr = document.querySelector('.drink-instructions')
-
-
 //event listener for when clicking on container, to activate and add the popup model
 previews.forEach(preview => {
   preview.addEventListener('click', () => {
@@ -46,38 +41,21 @@ function getDrink(){
   //replaces spaces with underscores for https
     let drinkUnderscore = drink.replace(/ /g,"_")
     
+    if(drink !== ""){
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkUnderscore}`)
                   .then(res => res.json()) // parse response as JSON
                   .then(data => {
-                    list.innerHtml = ""
+                    list.innerHTML = ""
                     data.drinks.forEach(result => {
-                    console.log(data.drinks[0])
-                    //adds API search results to the DOM
-                    // document.querySelector('.drink-name').innerText = data.drinks[0].strDrink
-                    // document.querySelector('.card-img').src = data.drinks[0].strDrinkThumb
-                    // document.querySelector('.drink-instructions').innerText = data.drinks[0].strInstructions
-                    //add show class to containers for search results - display:flex when drink is searched for(originally display:block)
-                       previews.forEach(preview => {
-                        preview.classList.add('show')
-                      })
-                      //event listeners for each results
-                      previews.forEach(preview => {
-                        preview.addEventListener('click', () => {
-                          //adds open class to display model and image
-                            model.classList.add('open')
-                            original.classList.add('open')
-                            //adds data from api into the DOM
-                            original.src = data.drinks[0].strDrinkThumb
-                            imgText.innerText = data.drinks[0].strInstructions
-                        })
-                      })
-                      
-                  })
-                  .catch(err => {
-                      console.log(`error ${err}`)
-                 });
+                      console.log(result.strDrink)
+                      list.appendChild(createItem(result))
+                    })
+                  }) 
+                      .catch(err => {
+                        console.log(`error ${err}`)
+                   });
+      }
     }
-                  )}
    //CODE FOR APENDING TO LIST(ALPHABET)
  
   ['a','b','c','d','e','f','g','h',
@@ -93,35 +71,6 @@ function getDrink(){
                       data.drinks.forEach(result => {
                         console.log(result.strDrink)
                         list.appendChild(createItem(result))
-                        // const item = document.createElement('li')
-                        // const name = document.createElement('h2')
-                        // const img = document.createElement('img')
-                        // // const ingredients = document.createElement('p')
-                        // img.style.maxWidth = "140px";
-                        // img.style.maxWeight = "140px";
-                        // img.style.borderRadius = "50%";
-                        // img.style.margin = "0"
-                        // img.src = object.strDrinkThumb
-
-                        // item.appendChild(img)
-
-                        // name.style.fontSize = "1.1rem";
-                        // name.innerText = object.strDrink
-
-                        // item.appendChild(name)
-
-                        // item.classList.add('card-container')
-                        // item.style.display = "flex"
-                        // item.style.alignItems = "start";
-                        // item.style.justifyContent = "start";
-                        // item.style.cursor = "pointer";
-                        // item.style.padding = "10px";
-                        // item.style.borderRadius = "10px";
-                        // item.style.backgroundColor = "rgb(233, 232, 232)";
-                        // item.style.marginTop = "5px"
-                        
-                        
-                        // list.appendChild(item)
                       })
                     }) 
                     .catch(err => {
@@ -131,19 +80,11 @@ function getDrink(){
 const createItem = (result) => {
         let newLi = document.createElement('li');
             newLi.className = 'card-container'
-            newLi.innerHTML = 
-            `
-            <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
-            <div class="name-ingredients">
-              <h2 class="drink-name">${ result.strDrink }</h2>
-              <h3 class="drink-instructions">${ result.strInstructions }</h3>
-            </div>
-            `
+            newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }"> <div class="name-ingredients">   <h2 class="drink-name">${ result.strDrink }</h2>   <h3 class="drink-instructions">${ result.strInstructions }</h3> </div> `
           // event listeners for each results
                         newLi.addEventListener('click', () => {
                           console.log('test')
                           //adds open class to display model and image
-                          console.log(img)
                             model.classList.add('open')
                             original.classList.add('open')
                             //adds data from api into the DOM

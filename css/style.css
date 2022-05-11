@@ -108,10 +108,8 @@ li{
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(233, 232, 232);
-  display: none;
-}
-.card-container.show{
   display: flex;
+  margin-top: 10px;
 }
 .search {
   width: 30%;
@@ -161,7 +159,7 @@ li{
   display: flex;
 }
 .main-container{
-  margin: 0px 5px 0px 5px;
+  margin: 0px 10px 0px 10px;
 }
 .card-container{
   align-items: center;
@@ -170,7 +168,7 @@ li{
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(233, 232, 232);
-  display: none;
+  display: flex;
 }
 .card-container.show{
   display: flex;
