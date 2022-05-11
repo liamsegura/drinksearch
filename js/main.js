@@ -90,7 +90,7 @@ function getDrink(){
                     .then(res => res.json()) // parse response as JSON
                     .then(data => {
                       list.innerHtml = ""
-                      for(object of data.drinks){
+                      data.drinks.forEach(object => {
                         console.log(object.strDrink)
                         const item = document.createElement('li')
                         const name = document.createElement('h2')
@@ -131,7 +131,7 @@ function getDrink(){
                             imgText.innerText = object.strDrink
                         })
                         list.appendChild(item)
-                    }
+                      })
                     })
                     
                      
