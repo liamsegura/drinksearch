@@ -53,15 +53,8 @@ function getDrink(){
                     document.querySelector('.drink-name').innerText = data.drinks[0].strDrink
                     document.querySelector('.card-img').src = data.drinks[0].strDrinkThumb
                     document.querySelector('.drink-instructions').innerText = data.drinks[0].strInstructions
-                    // for(object of data.drinks){
-                    //   // console.log(object.strDrink)
-                    // const item = document.createElement('li')
-                    // item.innerText = object.strDrink
-                    // console.log(item)
-                    // // //  item.classList.add('card-container')
-                    // list.appendChild(item)
-
-                       //add show class to containers for search results - display:flex when drink is searched for(originally display:block)
+                     
+                    //add show class to containers for search results - display:flex when drink is searched for(originally display:block)
                        previews.forEach(preview => {
                         preview.classList.add('show')
                       })
@@ -101,7 +94,6 @@ function getDrink(){
                         const img = document.createElement('img')
                         const ingredients = document.createElement('p')
 
-                        img.style.margin = "0 auto";
                         img.style.maxWidth = "140px";
                         img.style.maxWeight = "140px";
                         img.style.borderRadius = "50%";
@@ -114,23 +106,35 @@ function getDrink(){
 
                         item.appendChild(name)
 
+                        item.classList.add('card-container')
+                        item.style.display = "flex"
                         item.style.alignItems = "center";
                         item.style.justifyContent = "center";
                         item.style.cursor = "pointer";
                         item.style.padding = "10px";
                         item.style.borderRadius = "10px";
                         item.style.backgroundColor = "rgb(233, 232, 232)";
-                        // item.innerText = object.strDrink
-
-                       
-                        
-                        // item.classList.add('card-container')
+                  
+                        list.addEventListener('click', () => {
+                          console.log('test')
+                          //adds open class to display model and image
+                          console.log(img)
+                            model.classList.add('open')
+                            original.classList.add('open')
+                            //adds data from api into the DOM
+                            original.src = object.strDrinkThumb
+                            imgText.innerText = object.strDrink
+                        })
                         list.appendChild(item)
+                         //event listeners for each results
                       }
+                     
                       // document.querySelector('h2').innerText = data.drinks[0].strDrink
                       // document.querySelector('img').src = data.drinks[0].strDrinkThumb
                       // document.querySelector('h3').innerText = data.drinks[0].strInstructions
                     })
+  
+                     
                     .catch(err => {
                         console.log(`error ${err}`)
                    });
