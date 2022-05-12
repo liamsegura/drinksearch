@@ -84,7 +84,7 @@ const createItem = (result) => {
                                   <span class="drink-name">${ result.strDrink }</span>   
                                   <p class="drink-instructions">${ result.strDrink }</p> 
                              </div> `
-
+        newLi.classList.add('new-box')
         // event listeners for each results
         newLi.addEventListener('click', () => {
         //adds open class to display model and image

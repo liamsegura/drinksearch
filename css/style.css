@@ -271,3 +271,19 @@ nav{
     transform: translate(-50%, -5%);
   }
 }
+
+@keyframes append-animate {
+	from {
+		margin-top: -10px;
+    opacity: 0;
+	}
+	to {
+		margin: 0px;
+		opacity: 1;	
+	}
+}
+
+/* animate new box */
+.new-box {
+	animation: append-animate .4s ease;
+}
