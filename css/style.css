@@ -13,6 +13,7 @@
   color: rgb(43, 43, 43);
   margin: 0;
 	font-size: 100%;
+  min-width: 0;
 }
 /******************************************
 /* LAYOUT
@@ -21,7 +22,6 @@ html{
   margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
 }
@@ -34,6 +34,11 @@ ul{
 }
 li{
   display: flex;
+}
+p{
+  padding: 0;
+  margin: 0;
+  width: 100%;
 }
 
 /* NAV SECTION */
@@ -89,9 +94,9 @@ nav{
 
 /* GRID FOR CARDS */
 .results{
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 }
 
 /* CARDS GENERATED FROM SEARCH FUNCTIONS */
@@ -103,6 +108,8 @@ nav{
   border-radius: 10px;
   background-color: rgb(233, 232, 232);
   display: flex;
+  flex-wrap: wrap;
+  flex-basis: calc(50% - 0.25rem);
   transition: background-color 300ms ease;
 }
 .card-container:hover{
@@ -111,13 +118,14 @@ nav{
 .card-img{
   display: block;
   margin: 0 auto;
-  max-width: 140px;
-  max-height: 140px;
+  padding: 0;
+  max-width: 30%;
+  max-height: 30%;
   border-radius: 50%;
 }
-.name-ingredients{
+/* .name-ingredients{
  width: 60%;
-} 
+}  */
 .drink-name{
   font-weight: 400;
 }
@@ -190,23 +198,21 @@ nav{
   /* MAIN */
   .main-container{
     margin: 0px 10px 0px 10px;
-    display: grid;
+    /* display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    width: 100vw;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
   }
 
   /* CARD RESULTS FROM SEARCH */
   .card-container{
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(233, 232, 232);
     display: flex;
-   transition: none;
-   width: 95vw;
+    flex-wrap: wrap;
+    transition: none;
+    flex-basis: 100%;
   }
   .card-container:hover{
     background-color: #ffffff;

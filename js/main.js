@@ -82,7 +82,7 @@ const createItem = (result) => {
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
                                   <span class="drink-name">${ result.strDrink }</span>   
-                                  <p class="drink-instructions">${ result.strInstructions }</p> 
+                                  <p class="drink-instructions">${ result.strDrink }</p> 
                              </div> `
 
         // event listeners for each results
