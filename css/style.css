@@ -73,7 +73,12 @@ nav{
 .alphabet-container{
   display: flex;
   justify-content: flex-end;
-  padding: 10px 10px 20px 10px;
+  padding: 0px 10px 20px 10px;
+}
+.alphabet{
+  padding: 10px;
+  background-color: rgb(233, 232, 232);
+  border-radius: 5px;
 }
 
 
@@ -138,7 +143,7 @@ nav{
 }
 .model-name{
   font-size: 1.1rem;
-  font-weight: 200;
+  font-weight: 400;
   width: 80%;
   position: absolute;
   top: 5%;
@@ -159,8 +164,8 @@ nav{
   transform: translate(-50%, -50%)scale(1);
 }
 .model-instructions{
-  font-size: 1.1rem;
-  font-weight: 200;
+  font-size: 1.2rem;
+  font-weight: 300;
   width: 50%;
   position: absolute;
   top: 60%;
@@ -236,7 +241,7 @@ nav{
   }
   .model-name{
     font-size: 1.1rem;
-    font-weight: 200;
+    font-weight: 400;
     width: 80%;
     position: absolute;
     top: 5%;
@@ -256,8 +261,8 @@ nav{
     transform: translate(-50%, -50%)scale(1);
   }
   .model-instructions{
-    font-size: 1.1rem;
-    font-weight: 200;
+    font-size: 1rem;
+    font-weight: 300;
     width: 80%;
     position: absolute;
     top: 60%;

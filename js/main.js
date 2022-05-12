@@ -61,6 +61,7 @@ function letterChoice(choice){
           fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${choice}`)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => {
+                  console.log(data.drinks)
                   //clear DOM
                   list.innerHtml = ""
                   data.drinks.forEach(result => {
