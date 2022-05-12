@@ -193,6 +193,7 @@ nav{
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    width: 100vw;
   }
 
   /* CARD RESULTS FROM SEARCH */
@@ -205,6 +206,7 @@ nav{
     background-color: rgb(233, 232, 232);
     display: flex;
    transition: none;
+   width: 95vw;
   }
   .card-container:hover{
     background-color: #ffffff;
@@ -219,9 +221,7 @@ nav{
   .drink-instructions{
     font-size: 0.8rem;
   }
-  .name-ingredients{
-    width: 75%;
-  } 
+
 
   /* POP UP MODEL */
   .model{
