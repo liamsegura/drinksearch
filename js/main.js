@@ -10,25 +10,23 @@ const modalName = document.querySelector('.modal-name')
 const modalImage = document.querySelector('.modal-img')
 //instructions for popup modal 
 const modalInstructions = document.querySelector('.modal-instructions')
+//model section
+const modelSection = document.querySelector('.model-section')
+//empty varia for tracking timeouts
+let fetchHandle
 
 
+// dynamic search bar eventlistner
+document.querySelector('input').addEventListener('keyup', () => {
+  //check if theres already a timeout, if there is then cancel it
+  if(fetchHandle) clearTimeout(fetchHandle)
+  // setup a new timeout to run runSearch after 300 milliseconds
+  fetchHandle = setTimeout(runSearch, 300)
+})
 
-
-// //search bar button
-// document.querySelector('button').addEventListener('click', getDrink)
-// //search bar enterkey(i know i have done this the long way)
-// document.querySelector('input').addEventListener('keypress', function (e) {
-//   if (e.key === 'Enter') {
-//     getDrink()
-//   }
-// });
-
-// search bar dynamic type event listener
-document.querySelector('input').addEventListener('keyup', getDrink)
-
-//fetch function
-function getDrink(){
-  //takes value from the search bar
+//function to fetch data for input
+const runSearch = () => {
+    //takes value from the search bar
     let drink = document.querySelector('input').value 
   //replaces spaces with underscores for https
     let drinkUnderscore = drink.replace(/ /g,"_")
@@ -41,14 +39,15 @@ function getDrink(){
                     data.drinks.forEach(result => {
                       console.log(result.strDrink)
                       list.appendChild(createItem(result))
+                      
                     })
                   }) 
                       .catch(err => {
                         console.log(`error ${err}`)
                    });
       }
-    }
-   
+}
+
    
 //CODE FOR APENDING TO LIST(ALPHABET)
  
@@ -113,23 +112,17 @@ const createItem = (result) => {
         // event listeners for each results
         newLi.addEventListener('click', () => {
 
-        const createModal = (result) => {
+          modelSection.innerHTML = ""
 
-      let newDiv = document.createElement('div')
-          newDiv.className = 'modal'
-          newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
-                              <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
-                              <p class="modal-instructions">${ result.strInstructions }</p>`
-  }
-        //adds open class to display modal and image
+          newLi.addEventListener('click', () => {
+          
+          
+          
+            //adds open class to display modal and image
         modal.classList.add('open')
         modalName.classList.add('open')
         modalImage.classList.add('open')
         modalInstructions.classList.add('open')
-        //adds data from api into the DOM
-        modalImage.src = result.strDrinkThumb
-        modalInstructions.innerText = result.strInstructions
-        modalName.innerText = result.strDrink
       })
         //event listener for when clicking off of the pop up modal
         modal.addEventListener('click', (e) => {
@@ -141,6 +134,13 @@ const createItem = (result) => {
             modalInstructions.classList.remove('open')
         }
       })
+
+
+          modelSection.appendChild(createModal(result))
+         
+
+          })
+
       return newLi
   }
   const createModal = (result) => {
@@ -150,4 +150,5 @@ const createItem = (result) => {
           newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
                               <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                               <p class="modal-instructions">${ result.strInstructions }</p>`
+          return newDiv
   }
