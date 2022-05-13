@@ -4,7 +4,7 @@
 @-ms-viewport{
   width: device-width;
 }
-/* Box Model Hack */
+/* Box modal Hack */
 *{
   /* border:1px solid red;  */
   box-sizing: border-box;
@@ -128,8 +128,8 @@ nav{
   font-weight: 200;
 }
 
-/* POP UP MODEL */
-.model{
+/* POP UP modal */
+.modal{
   background: rgba(255, 255, 255, 0.9);
   position: fixed;
   top: 0;
@@ -140,11 +140,11 @@ nav{
   pointer-events: none;
   transition: all 0.25s ease-out;
 }
-.model.open{
+.modal.open{
   opacity: 1;
   pointer-events: all;
 }
-.model-name{
+.modal-name{
   font-size: 1.1rem;
   font-weight: 400;
   width: 80%;
@@ -153,7 +153,7 @@ nav{
   left: 83%;
   transform: translate(-50%, -5%);
 }
-.model-img{
+.modal-img{
   width: 300px;
   height: 300px;
   position: absolute;
@@ -163,10 +163,10 @@ nav{
   transition: all 0.25s ease-out;
   border-radius: 30px;
 }
-.model-img.open{
+.modal-img.open{
   transform: translate(-50%, -50%)scale(1);
 }
-.model-instructions{
+.modal-instructions{
   font-size: 1.2rem;
   font-weight: 300;
   width: 50%;
@@ -224,8 +224,8 @@ nav{
   }
 
 
-  /* POP UP MODEL */
-  .model{
+  /* POP UP modal */
+  .modal{
     background: rgba(255, 255, 255, 0.9);
     position: fixed;
     top: 0;
@@ -236,11 +236,11 @@ nav{
     pointer-events: none;
     transition: all 0.25s ease-out;
   }
-  .model.open{
+  .modal.open{
     opacity: 1;
     pointer-events: all;
   }
-  .model-name{
+  .modal-name{
     font-size: 1.1rem;
     font-weight: 400;
     width: 80%;
@@ -249,7 +249,7 @@ nav{
     left: 83%;
     transform: translate(-50%, -5%);
   }
-  .model-img{
+  .modal-img{
     width: 300px;
     height: 300px;
     position: absolute;
@@ -258,10 +258,10 @@ nav{
     transform: translate(-50%, -50%)scale(0.5);
     transition: all 0.25s ease-out;
   }
-  .model-img.open{
+  .modal-img.open{
     transform: translate(-50%, -50%)scale(1);
   }
-  .model-instructions{
+  .modal-instructions{
     font-size: 1rem;
     font-weight: 300;
     width: 80%;
