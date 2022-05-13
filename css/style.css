@@ -121,8 +121,20 @@ nav{
   max-height: 200px;
   border-radius: 50%;
 }
+.name-ingredients{
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  
+}
 .drink-name{
   font-weight: 400;
+  margin-bottom: 2px;
+}
+.drink-ingredient{
+  margin-top: 1px;
+  font-size: 1rem;
+  font-weight: 200;
 }
 .drink-instructions{
   font-weight: 200;

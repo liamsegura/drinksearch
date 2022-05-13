@@ -37,7 +37,7 @@ const runSearch = () => {
                   .then(data => {
                     list.innerHTML = ""
                     data.drinks.forEach(result => {
-                      console.log(result.strDrink)
+                      console.log(result)
                       list.appendChild(createItem(result))
                       
                     })
@@ -54,7 +54,7 @@ const runSearch = () => {
 // event listener for each letter
 ['a','b','c','d','e','f','g','h',
 'i','j','k','l','m','n','o','p','q',
-'r','s','t','u','v','w','x','y','z'].forEach(choice => document.getElementById(choice).addEventListener('click', () => letterChoice(choice)))
+'r','s','t','v','w','y','z'].forEach(choice => document.getElementById(choice).addEventListener('click', () => letterChoice(choice)))
 
 
 // function for alphabet selection
@@ -117,7 +117,7 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                       // console.log(data.drinks[0].strInstructions)
                       data.drinks.forEach(result => {
                         console.log(result.strInstructions)
-                        document.querySelector(".name-ingredients").appendChild(instructionsDiv(result))
+                        
                       })
                     })
                     .catch(err => {
@@ -150,12 +150,31 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
 
 //variable to create HTML with a param for data
 const createItem = (result) => {
+  // if(result.strIngredient3 === 'null'){
+     if(result.strIngredient3 === null){
+      result.strIngredient3 = ""
+     }
+     if(result.strIngredient4 === null){
+      result.strIngredient4 = ""
+     }
+     if(result.strIngredient5 === null){
+      result.strIngredient5 = ""
+     }
+     if(result.strIngredient2 === null){
+      result.strIngredient2 = ""
+     }
+     
   //HTML for the DOM with results from the param
     let newLi = document.createElement('li');
         newLi.className = 'card-container'
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
                                   <span class="drink-name">${ result.strDrink }</span>   
+                                  <span class="drink-ingredient">${ result.strIngredient1 }</p>
+                                  <span class="drink-ingredient">${ result.strIngredient2 }</p>
+                                  <span class="drink-ingredient">${ result.strIngredient3 }</p>
+                                  <span class="drink-ingredient">${ result.strIngredient4 }</p>
+                                  <span class="drink-ingredient">${ result.strIngredient5 }</p>
                                  
                              </div> `
         newLi.classList.add('new-box')
@@ -205,11 +224,11 @@ const createItem = (result) => {
           return newDiv
   }
 
-  const instructionsDiv = (result) => {
+  // const instructionsDiv = (result) => {
 
-    let newP = document.createElement('p')
-        newP.className = "modal-instructions"
-        newP.innerHTML = `<p class="modal-instructions">${ result.strInstructions }</p>`
+  //   let newP = document.createElement('p')
+  //       newP.className = "modal-instructions"
+  //       newP.innerHTML = `<p class="modal-instructions">${ result.strInstructions }</p>`
 
-        return newP
-  }
+  //       return newP
+  // }
