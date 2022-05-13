@@ -76,6 +76,8 @@ function letterChoice(choice){
                });
   }
 
+
+//even listener for each spirit
 ["rum", "gin", "vodka", "tequila", "whisky"].forEach(choice => document.getElementById(choice).addEventListener('click', () => spiritChoice(choice)))
 
 // function for ingredient selection
@@ -84,11 +86,11 @@ function spiritChoice(choice){
           fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${choice}`)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => {
-                  console.log(data.drinks[0])
+                  
                   //clear DOM
                   list.innerHtml = ""
                   data.drinks.forEach(result => {
-                    
+                    // console.log(getId(result.idDrink))
                     //appends variable createItem with results from data.drinks to list variable
                     list.appendChild(createItem(result))
                   })
@@ -98,6 +100,54 @@ function spiritChoice(choice){
                });
   }
 
+  //None alchoholic section
+document.getElementById('non-alcoholic').addEventListener('click', () => {
+  list.innerHTML = ""
+          fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
+                .then(res => res.json()) // parse response as JSON
+                .then(data => {
+                  // console.log(data.drinks)
+                  //clear DOM
+                  list.innerHtml = ""
+                  data.drinks.forEach(result => {
+            
+                     fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink}`)
+                    .then(res => res.json()) // parse response as JSON
+                    .then(data => {
+                      // console.log(data.drinks[0].strInstructions)
+                      data.drinks.forEach(result => {
+                        console.log(result.strInstructions)
+                        document.querySelector(".name-ingredients").appendChild(instructionsDiv(result))
+                      })
+                    })
+                    .catch(err => {
+                      console.log(`error ${err}`)
+                 })
+
+                    
+                    //appends variable createItem with results from data.drinks to list variable
+                    list.appendChild(createItem(result))
+                    
+                  })
+                }) 
+                .catch(err => {
+                    console.log(`error ${err}`)
+               });
+  })
+
+//   const getId = (id) => {
+//   fetch(`https://  www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ id }`)
+//   .then(res => res.json()) // parse response as JSON
+//   .then(data => {
+//     console.log(data)
+
+//   }) 
+//   .catch(err => {
+//       console.log(`error ${err}`)
+//  });
+// return id
+// }
+
 //variable to create HTML with a param for data
 const createItem = (result) => {
   //HTML for the DOM with results from the param
@@ -106,7 +156,7 @@ const createItem = (result) => {
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
                                   <span class="drink-name">${ result.strDrink }</span>   
-                                  <p class="drink-instructions">${ result.strInstructions }</p> 
+                                 
                              </div> `
         newLi.classList.add('new-box')
         // event listeners for each results
@@ -117,7 +167,7 @@ const createItem = (result) => {
           newLi.addEventListener('click', () => {
           
           
-          
+          console.log('test')
             //adds open class to display modal and image
         modal.classList.add('open')
         modalName.classList.add('open')
@@ -143,12 +193,23 @@ const createItem = (result) => {
 
       return newLi
   }
+
+
   const createModal = (result) => {
 
       let newDiv = document.createElement('div')
           newDiv.className = 'modal'
           newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
                               <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
-                              <p class="modal-instructions">${ result.strInstructions }</p>`
+                            `
           return newDiv
+  }
+
+  const instructionsDiv = (result) => {
+
+    let newP = document.createElement('p')
+        newP.className = "modal-instructions"
+        newP.innerHTML = `<p class="modal-instructions">${ result.strInstructions }</p>`
+
+        return newP
   }
