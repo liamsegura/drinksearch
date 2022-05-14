@@ -12,6 +12,11 @@ const modalImage = document.querySelector('.modal-img')
 const modalInstructions = document.querySelector('.modal-instructions')
 //model section
 const modelSection = document.querySelector('.model-section')
+//ingredients 
+const ingredients = document.querySelector('.name-ingredients')
+
+
+
 //empty varia for tracking timeouts
 let fetchHandle
 
@@ -111,42 +116,32 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                   list.innerHtml = ""
                   data.drinks.forEach(result => {
             
-                     fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink}`)
+                 
+                    //appends variable createItem with results from data.drinks to list variable
+                    list.appendChild(createItem(result))
+                    
+                    fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink}`)
                     .then(res => res.json()) // parse response as JSON
                     .then(data => {
                       // console.log(data.drinks[0].strInstructions)
                       data.drinks.forEach(result => {
-                        console.log(result.strInstructions)
+                        console.log(result.strIngredient1)
                         
+                        ingredients.appendChild(getIngredientsById(result))
+
                       })
                     })
                     .catch(err => {
                       console.log(`error ${err}`)
                  })
 
-                    
-                    //appends variable createItem with results from data.drinks to list variable
-                    list.appendChild(createItem(result))
-                    
+
                   })
                 }) 
                 .catch(err => {
                     console.log(`error ${err}`)
                });
   })
-
-//   const getId = (id) => {
-//   fetch(`https://  www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ id }`)
-//   .then(res => res.json()) // parse response as JSON
-//   .then(data => {
-//     console.log(data)
-
-//   }) 
-//   .catch(err => {
-//       console.log(`error ${err}`)
-//  });
-// return id
-// }
 
 //variable to create HTML with a param for data
 const createItem = (result) => {
@@ -203,8 +198,6 @@ const createItem = (result) => {
             modalInstructions.classList.remove('open')
         }
       })
-
-
           modelSection.appendChild(createModal(result))
          
 
@@ -224,11 +217,14 @@ const createItem = (result) => {
           return newDiv
   }
 
-  // const instructionsDiv = (result) => {
+  const getIngredientsById = (result) => {
 
-  //   let newP = document.createElement('p')
-  //       newP.className = "modal-instructions"
-  //       newP.innerHTML = `<p class="modal-instructions">${ result.strInstructions }</p>`
+    let newSpan = document.createElement('span')
+        newSpan .innerHTML = `<span class="drink-ingredient">${ result.strIngredient1 }</p>
+        <span class="drink-ingredient">${ result.strIngredient2 }</p>
+        <span class="drink-ingredient">${ result.strIngredient3 }</p>
+        <span class="drink-ingredient">${ result.strIngredient4 }</p>
+        <span class="drink-ingredient">${ result.strIngredient5 }</p>`
 
-  //       return newP
-  // }
+        return newSpan
+  }
