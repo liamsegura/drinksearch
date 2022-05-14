@@ -12,8 +12,7 @@ const modalImage = document.querySelector('.modal-img')
 const modalInstructions = document.querySelector('.modal-instructions')
 //model section
 const modelSection = document.querySelector('.model-section')
-//ingredients 
-const ingredients = document.querySelector('.name-ingredients')
+
 
 
 
@@ -115,26 +114,13 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                   //clear DOM
                   list.innerHtml = ""
                   data.drinks.forEach(result => {
-            
-                 
-                    //appends variable createItem with results from data.drinks to list variable
-                    list.appendChild(createItem(result))
                     
-                    fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink}`)
-                    .then(res => res.json()) // parse response as JSON
-                    .then(data => {
-                      // console.log(data.drinks[0].strInstructions)
-                      data.drinks.forEach(result => {
-                        console.log(result.strIngredient1)
-                        
-                        ingredients.appendChild(getIngredientsById(result))
+                    list.appendChild(createItem(result))
+                    // console.log(result.idDrink)
 
-                      })
-                    })
-                    .catch(err => {
-                      console.log(`error ${err}`)
-                 })
-
+                    let ingredients = document.querySelector('.name-ingredients')
+                    
+                    ingredients.appendChild(fetchID(result.idDrink))
 
                   })
                 }) 
@@ -142,6 +128,11 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                     console.log(`error ${err}`)
                });
   })
+
+  //test function
+
+
+
 
 //variable to create HTML with a param for data
 const createItem = (result) => {
@@ -164,13 +155,7 @@ const createItem = (result) => {
         newLi.className = 'card-container'
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
-                                  <span class="drink-name">${ result.strDrink }</span>   
-                                  <span class="drink-ingredient">${ result.strIngredient1 }</p>
-                                  <span class="drink-ingredient">${ result.strIngredient2 }</p>
-                                  <span class="drink-ingredient">${ result.strIngredient3 }</p>
-                                  <span class="drink-ingredient">${ result.strIngredient4 }</p>
-                                  <span class="drink-ingredient">${ result.strIngredient5 }</p>
-                                 
+                                  <span class="drink-name">${ result.strDrink }</span> 
                              </div> `
         newLi.classList.add('new-box')
         // event listeners for each results
@@ -198,6 +183,7 @@ const createItem = (result) => {
             modalInstructions.classList.remove('open')
         }
       })
+
           modelSection.appendChild(createModal(result))
          
 
@@ -205,6 +191,37 @@ const createItem = (result) => {
 
       return newLi
   }
+
+
+  
+  const fetchID = (result) => {
+
+    fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result }`)
+    .then(res => res.json()) // parse response as JSON
+    .then(data => {
+      // console.log(data.drinks[0].strInstructions)
+      data.drinks.forEach(result => {
+        console.log(result.strIngredient1)
+  
+        let newSpan = document.createElement('div')
+          newSpan.innerHTML = `<span class="drink-ingredient">${ result.strIngredient1 }</p>
+          <span class="drink-ingredient">${ result.strIngredient2 }</p>
+          <span class="drink-ingredient">${ result.strIngredient3 }</p>
+          <span class="drink-ingredient">${ result.strIngredient4 }</p>
+          <span class="drink-ingredient">${ result.strIngredient5 }</p>`
+  
+          return newSpan
+  
+      })
+    })
+    .catch(err => {
+      console.log(`error ${err}`)
+  })
+  }
+  
+
+
+
 
 
   const createModal = (result) => {
@@ -217,14 +234,3 @@ const createItem = (result) => {
           return newDiv
   }
 
-  const getIngredientsById = (result) => {
-
-    let newSpan = document.createElement('span')
-        newSpan .innerHTML = `<span class="drink-ingredient">${ result.strIngredient1 }</p>
-        <span class="drink-ingredient">${ result.strIngredient2 }</p>
-        <span class="drink-ingredient">${ result.strIngredient3 }</p>
-        <span class="drink-ingredient">${ result.strIngredient4 }</p>
-        <span class="drink-ingredient">${ result.strIngredient5 }</p>`
-
-        return newSpan
-  }
