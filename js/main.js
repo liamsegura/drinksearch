@@ -143,11 +143,14 @@ const createItem = (result) => {
                   newLi.addEventListener('click', () => {
 
               newDiv.classList.add('open')
+              newDiv.classList.add('new-box')
+              
               //event listener for when clicking off of the pop up modal
               newDiv.addEventListener('click', (e) => {
               //if the element clicked contains modal class, remove the open class
               if(e.target.classList.contains('modal')){
                   newDiv.classList.remove('open')
+                  newDiv.classList.remove('new-box')
               
               }
             })
