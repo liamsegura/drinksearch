@@ -29,6 +29,7 @@ document.querySelector('input').addEventListener('keyup', () => {
   fetchHandle = setTimeout(runSearch, 300)
 })
 
+
 //function to fetch data for input
 const runSearch = () => {
     //takes value from the search bar
@@ -117,14 +118,6 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                   data.drinks.forEach(result => {
                     
                     list.appendChild(createItem(result))
-                    // console.log(result.idDrink)
-
-                   
-                    
-                    // ingredients.appendChild(
-                      // let returnedIngredients = fetchID(result.idDrink)
-                      
-                      // ingredients.appendChild(returnedIngredients)
 
                   })
                 }) 
@@ -133,8 +126,29 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                });
   })
 
-  //test function
-
+//random drink
+document.getElementById('random-drink').addEventListener('click', () => {
+  list.innerHTML = ""
+  fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+  .then(res => res.json()) // parse response as JSON
+  .then(data => {
+    // console.log(data.drinks)
+    data.drinks.forEach(result => {
+     
+      //return random drink to variable 
+      let randomDrink = createItem(result)
+     
+      //changing color background to gold
+      randomDrink.style.backgroundColor = "rgb(241, 246, 65)"
+      
+      //append to list
+      list.appendChild(randomDrink)
+    })
+  }) 
+  .catch(err => {
+      console.log(`error ${err}`)
+ });
+})
 
 
 
