@@ -136,15 +136,15 @@ document.getElementById('random-drink').addEventListener('click', () => {
     data.drinks.forEach(result => {
      
       //return random drink to variable 
-      let randomDrink = createItem(result)
+      createItem(result)
      
       //changing color background to gold
-      randomDrink.style.backgroundColor = "rgb(241, 246, 65)"
+      // randomDrink.style.backgroundColor = "rgb(241, 246, 65)"
       
       //append to list
-      list.appendChild(randomDrink)
     })
   }) 
+
   .catch(err => {
       console.log(`error ${err}`)
  });
@@ -172,30 +172,17 @@ const createItem = (result) => {
       //variable that returns results from fetching ID's
 
     
-   let returned = []
+   let returned = {}
    
-       fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
+      fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
 
-        let id = []
-        // console.log(data.drinks[0].strInstructions)
-        data.drinks.forEach(result => {
-          // console.log(result.strIngredient1)
-          id.push(result)
-        })
-        console.log(id[0].idDrink)
-      })
-      .catch(err => {
-        console.log(`error ${err}`)
-    })
+        console.log(data.drinks)
+        returned = data.drinks[0]
 
-    console.log(returned)
-  
-  // console.log(id)
 
-  //HTML for the DOM with results from the param
-    let newLi = document.createElement('li');
+        let newLi = document.createElement('li');
         newLi.className = 'card-container'
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
@@ -239,8 +226,20 @@ const createItem = (result) => {
          
 
           })
+          list.appendChild(newLi)
+        })
+  
+      .catch(err => {
+        console.log(`error ${err}`)
+    })
 
-      return newLi
+
+  
+  
+  // console.log(id)
+
+  //HTML for the DOM with results from the param
+  
   }
 
 
@@ -275,13 +274,13 @@ const createItem = (result) => {
 
 
 
-  // const createModal = (result) => {
+  const createModal = (result) => {
 
-  //     let newDiv = document.createElement('div')
-  //         newDiv.className = 'modal'
-  //         newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
-  //                             <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
-  //                           `
-  //         return newDiv
-  // }
+      let newDiv = document.createElement('div')
+          newDiv.className = 'modal'
+          newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
+                              <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
+                            `
+          return newDiv
+  }
 
