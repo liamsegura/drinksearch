@@ -184,7 +184,7 @@ const createItem = (result) => {
           // console.log(result.strIngredient1)
           id.push(result)
         })
-        returned.push(id[0].idDrink)
+        console.log(id[0].idDrink)
       })
       .catch(err => {
         console.log(`error ${err}`)
