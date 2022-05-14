@@ -168,26 +168,31 @@ const createItem = (result) => {
       result.strIngredient2 = ""
      }
      
-
+// console.log(result.idDrink)
       //variable that returns results from fetching ID's
 
-     const id = []
+    
+   let returned = []
    
-      fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
+       fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
+
+        let id = []
         // console.log(data.drinks[0].strInstructions)
         data.drinks.forEach(result => {
-          console.log(result)
-
-            
-          id = result
+          // console.log(result.strIngredient1)
+          id.push(result)
         })
+        returned.push(id[0].idDrink)
       })
       .catch(err => {
         console.log(`error ${err}`)
     })
-  console.log(id)
+
+    console.log(returned)
+  
+  // console.log(id)
 
   //HTML for the DOM with results from the param
     let newLi = document.createElement('li');
@@ -195,11 +200,11 @@ const createItem = (result) => {
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
                                   <span class="drink-name">${ result.strDrink }</span> 
-                                  <span class="drink-ingredient">${ id.strIngredient1 }</p>
-                                  <span class="drink-ingredient">${ id.strIngredient2 }</p>
-                                  <span class="drink-ingredient">${ id.strIngredient3 }</p>
-                                  <span class="drink-ingredient">${ id.strIngredient4 }</p>
-                                  <span class="drink-ingredient">${ id.strIngredient5 }</p>
+                                  <span class="drink-ingredient">${ returned.strIngredient1 }</p>
+                                  <span class="drink-ingredient">${ returned.strIngredient2 }</p>
+                                  <span class="drink-ingredient">${ returned.strIngredient3 }</p>
+                                  <span class="drink-ingredient">${ returned.strIngredient4 }</p>
+                                  <span class="drink-ingredient">${ returned.strIngredient5 }</p>
                              </div> `
         newLi.classList.add('new-box')
 
