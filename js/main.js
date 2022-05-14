@@ -32,6 +32,7 @@ document.querySelector('input').addEventListener('keyup', () => {
 
 //function to fetch data for input
 const runSearch = () => {
+  list.innerHTML = ""
     //takes value from the search bar
     let drink = document.querySelector('input').value 
   //replaces spaces with underscores for https
@@ -39,21 +40,22 @@ const runSearch = () => {
     
     if(drink !== ""){
             fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkUnderscore}`)
-                  .then(res => res.json()) // parse response as JSON
-                  .then(data => {
-                    list.innerHTML = ""
-                    data.drinks.forEach(result => {
-                      // console.log(result)
-                      list.appendChild(createItem(result))
-                      
-                    })
-                  }) 
-                      .catch(err => {
-                        console.log(`error ${err}`)
-                   });
-      }
+            .then(res => res.json()) // parse response as JSON
+            .then(data => {
+              // console.log(data.drinks)
+              data.drinks.forEach(result => {
+               
+                //return random drink to variable 
+                createItem(result)
+          
+              })
+            }) 
+          
+            .catch(err => {
+                console.log(`error ${err}`)
+           });
 }
-
+}
    
 //CODE FOR APENDING TO LIST(ALPHABET)
  
@@ -67,21 +69,21 @@ const runSearch = () => {
 function letterChoice(choice){
   list.innerHTML = ""
           fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${choice}`)
-                .then(res => res.json()) // parse response as JSON
-                .then(data => {
-                  // console.log(data.drinks)
-                  //clear DOM
-                  list.innerHtml = ""
-                  data.drinks.forEach(result => {
-                    //appends variable createItem with results from data.drinks to list variable
-                    list.appendChild(createItem(result))
-                  })
-                }) 
-                .catch(err => {
-                    console.log(`error ${err}`)
-               });
-  }
-
+          .then(res => res.json()) // parse response as JSON
+          .then(data => {
+            // console.log(data.drinks)
+            data.drinks.forEach(result => {
+             
+              //return random drink to variable 
+              createItem(result)
+        
+            })
+          }) 
+        
+          .catch(err => {
+              console.log(`error ${err}`)
+         });
+}
 
 //even listener for each spirit
 ["rum", "gin", "vodka", "tequila", "whisky"].forEach(choice => document.getElementById(choice).addEventListener('click', () => spiritChoice(choice)))
@@ -92,39 +94,40 @@ function spiritChoice(choice){
           fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${choice}`)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => {
-                  
-                  //clear DOM
-                  list.innerHtml = ""
+                  // console.log(data.drinks)
                   data.drinks.forEach(result => {
-                    // console.log(getId(result.idDrink))
-                    //appends variable createItem with results from data.drinks to list variable
-                    list.appendChild(createItem(result))
+                   
+                    //return random drink to variable 
+                    createItem(result)
+              
                   })
                 }) 
+              
                 .catch(err => {
                     console.log(`error ${err}`)
                });
-  }
+}
 
   //None alchoholic section
 document.getElementById('non-alcoholic').addEventListener('click', () => {
   list.innerHTML = ""
           fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
-                .then(res => res.json()) // parse response as JSON
-                .then(data => {
-                  // console.log(data.drinks)
-                  //clear DOM
-                  list.innerHtml = ""
-                  data.drinks.forEach(result => {
-                    
-                    list.appendChild(createItem(result))
-
-                  })
-                }) 
-                .catch(err => {
-                    console.log(`error ${err}`)
-               });
-  })
+          .then(res => res.json()) // parse response as JSON
+          .then(data => {
+            // console.log(data.drinks)
+            data.drinks.forEach(result => {
+             
+              //return random drink to variable 
+              createItem(result)
+        
+            })
+          }) 
+        
+          .catch(err => {
+              console.log(`error ${err}`)
+         });
+        })
+        
 
 //random drink
 document.getElementById('random-drink').addEventListener('click', () => {
@@ -137,11 +140,7 @@ document.getElementById('random-drink').addEventListener('click', () => {
      
       //return random drink to variable 
       createItem(result)
-     
-      //changing color background to gold
-      // randomDrink.style.backgroundColor = "rgb(241, 246, 65)"
-      
-      //append to list
+
     })
   }) 
 
@@ -154,26 +153,7 @@ document.getElementById('random-drink').addEventListener('click', () => {
 
 //variable to create HTML with a param for data
 const createItem = (result) => {
-  // if(result.strIngredient3 === 'null'){
-     if(result.strIngredient3 === null){
-      result.strIngredient3 = ""
-     }
-     if(result.strIngredient4 === null){
-      result.strIngredient4 = ""
-     }
-     if(result.strIngredient5 === null){
-      result.strIngredient5 = ""
-     }
-     if(result.strIngredient2 === null){
-      result.strIngredient2 = ""
-     }
-     
-// console.log(result.idDrink)
-      //variable that returns results from fetching ID's
 
-    
-   let returned = {}
-   
       fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
@@ -181,12 +161,25 @@ const createItem = (result) => {
         console.log(data.drinks)
         returned = data.drinks[0]
 
+        if(returned.strIngredient3 === null){
+          returned.strIngredient3 = ""
+         }
+         if(returned.strIngredient4 === null){
+          returned.strIngredient4 = ""
+         }
+         if(returned.strIngredient5 === null){
+          returned.strIngredient5 = ""
+         }
+         if(returned.strIngredient2 === null){
+          returned.strIngredient2 = ""
+         }
+         
 
         let newLi = document.createElement('li');
         newLi.className = 'card-container'
-        newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
+        newLi.innerHTML =  ` <img class="card-img" src="${ returned.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
-                                  <span class="drink-name">${ result.strDrink }</span> 
+                                  <span class="drink-name">${ returned.strDrink }</span> 
                                   <span class="drink-ingredient">${ returned.strIngredient1 }</p>
                                   <span class="drink-ingredient">${ returned.strIngredient2 }</p>
                                   <span class="drink-ingredient">${ returned.strIngredient3 }</p>
@@ -233,44 +226,7 @@ const createItem = (result) => {
         console.log(`error ${err}`)
     })
 
-
-  
-  
-  // console.log(id)
-
-  //HTML for the DOM with results from the param
-  
   }
-
-
-  
-  // const fetchID = (result) => {
-
-  //   let newSpanBlock = fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result }`)
-  //   .then(res => res.json()) // parse response as JSON
-  //   .then(data => {
-  //     // console.log(data.drinks[0].strInstructions)
-  //     data.drinks.forEach(result => {
-  //       console.log(result.strIngredient1)
-  
-  //       let newSpan = document.createElement('div')
-  //         newSpan.innerHTML = `<span class="drink-ingredient">${ result.strIngredient1 }</p>
-  //         <span class="drink-ingredient">${ result.strIngredient2 }</p>
-  //         <span class="drink-ingredient">${ result.strIngredient3 }</p>
-  //         <span class="drink-ingredient">${ result.strIngredient4 }</p>
-  //         <span class="drink-ingredient">${ result.strIngredient5 }</p>`
-  
-  //         return newSpan
-  
-  //     })
-  //   })
-  //   .catch(err => {
-  //     console.log(`error ${err}`)
-  // })
-  // }
-  
-
-
 
 
 
