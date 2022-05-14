@@ -1,23 +1,13 @@
 //results list
 const list = document.querySelector('.results')
-//container with results from search
-const previews = document.querySelectorAll('.card-container')
+
 //pop up section
-const modal = document.querySelector('.modal')
-//bane for popup modal
-const modalName = document.querySelector('.modal-name')
-//image for popup modal
-const modalImage = document.querySelector('.modal-img')
-//instructions for popup modal 
-const modalInstructions = document.querySelector('.modal-instructions')
-//model section
-const modelSection = document.querySelector('.model-section')
-
-
-
+const modalSection = document.querySelector('.model-section')
 
 //empty variable for tracking timeouts
 let fetchHandle
+
+
 
 
 // dynamic search bar eventlistener
@@ -112,7 +102,7 @@ const createItem = (result) => {
       .then(res => res.json()) // parse response as JSON
       .then(data => {
 
-        console.log(data.drinks)
+        // console.log(data.drinks)
         returned = data.drinks[0]
 
         if(returned.strIngredient3 === null){
@@ -142,50 +132,31 @@ const createItem = (result) => {
                              </div> `
         newLi.classList.add('new-box')
 
-        
-        // event listeners for each results
-        newLi.addEventListener('click', () => {
+        let newDiv = document.createElement('div')
+              newDiv.className = 'modal'
+              newDiv.innerHTML = `<span class="modal-name">${ returned.strDrink }</span>
+                                  <img class="modal-img" src="${ returned.strDrinkThumb }" alt="${ returned.strDrink }">
+                                `            
+                console.log('test')
+                  //adds open class to display modal and image
 
-          modelSection.innerHTML = ""
+                  newLi.addEventListener('click', () => {
 
-          newLi.addEventListener('click', () => {
-          
-          
-          console.log('test')
-            //adds open class to display modal and image
-        modal.classList.add('open')
-        modalName.classList.add('open')
-        modalImage.classList.add('open')
-        modalInstructions.classList.add('open')
-      })
-        //event listener for when clicking off of the pop up modal
-        modal.addEventListener('click', (e) => {
-        //if the element clicked contains modal class, remove the open class
-        if(e.target.classList.contains('modal')){
-            modal.classList.remove('open')
-            modalName.classList.remove('open')
-            modalImage.classList.remove('open')
-            modalInstructions.classList.remove('open')
-        }
-      })
-          modelSection.appendChild(createModal(result))
+              newDiv.classList.add('open')
+              //event listener for when clicking off of the pop up modal
+              newDiv.addEventListener('click', (e) => {
+              //if the element clicked contains modal class, remove the open class
+              if(e.target.classList.contains('modal')){
+                  newDiv.classList.remove('open')
+              
+              }
+            })
+            modalSection.appendChild(newDiv)
           })
           list.appendChild(newLi)
         })
       .catch(err => {
         console.log(`error ${err}`)
     })
-  }
-
-
-
-  const createModal = (result) => {
-
-      let newDiv = document.createElement('div')
-          newDiv.className = 'modal'
-          newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
-                              <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
-                            `
-          return newDiv
   }
 
