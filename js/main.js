@@ -12,11 +12,12 @@ const modalImage = document.querySelector('.modal-img')
 const modalInstructions = document.querySelector('.modal-instructions')
 //model section
 const modelSection = document.querySelector('.model-section')
+//
+const ingredients = document.querySelector('.name-ingredients')
 
 
 
-
-//empty varia for tracking timeouts
+//empty variable for tracking timeouts
 let fetchHandle
 
 
@@ -41,7 +42,7 @@ const runSearch = () => {
                   .then(data => {
                     list.innerHTML = ""
                     data.drinks.forEach(result => {
-                      console.log(result)
+                      // console.log(result)
                       list.appendChild(createItem(result))
                       
                     })
@@ -67,7 +68,7 @@ function letterChoice(choice){
           fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${choice}`)
                 .then(res => res.json()) // parse response as JSON
                 .then(data => {
-                  console.log(data.drinks)
+                  // console.log(data.drinks)
                   //clear DOM
                   list.innerHtml = ""
                   data.drinks.forEach(result => {
@@ -118,9 +119,12 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
                     list.appendChild(createItem(result))
                     // console.log(result.idDrink)
 
-                    let ingredients = document.querySelector('.name-ingredients')
+                   
                     
-                    ingredients.appendChild(fetchID(result.idDrink))
+                    // ingredients.appendChild(
+                      // let returnedIngredients = fetchID(result.idDrink)
+                      
+                      // ingredients.appendChild(returnedIngredients)
 
                   })
                 }) 
@@ -150,14 +154,42 @@ const createItem = (result) => {
       result.strIngredient2 = ""
      }
      
+
+      //variable that returns results from fetching ID's
+
+     const id = []
+   
+      fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
+      .then(res => res.json()) // parse response as JSON
+      .then(data => {
+        // console.log(data.drinks[0].strInstructions)
+        data.drinks.forEach(result => {
+          console.log(result)
+
+            
+          id = result
+        })
+      })
+      .catch(err => {
+        console.log(`error ${err}`)
+    })
+  console.log(id)
+
   //HTML for the DOM with results from the param
     let newLi = document.createElement('li');
         newLi.className = 'card-container'
         newLi.innerHTML =  ` <img class="card-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
                                   <span class="drink-name">${ result.strDrink }</span> 
+                                  <span class="drink-ingredient">${ id.strIngredient1 }</p>
+                                  <span class="drink-ingredient">${ id.strIngredient2 }</p>
+                                  <span class="drink-ingredient">${ id.strIngredient3 }</p>
+                                  <span class="drink-ingredient">${ id.strIngredient4 }</p>
+                                  <span class="drink-ingredient">${ id.strIngredient5 }</p>
                              </div> `
         newLi.classList.add('new-box')
+
+        
         // event listeners for each results
         newLi.addEventListener('click', () => {
 
@@ -194,43 +226,43 @@ const createItem = (result) => {
 
 
   
-  const fetchID = (result) => {
+  // const fetchID = (result) => {
 
-    fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result }`)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      // console.log(data.drinks[0].strInstructions)
-      data.drinks.forEach(result => {
-        console.log(result.strIngredient1)
+  //   let newSpanBlock = fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result }`)
+  //   .then(res => res.json()) // parse response as JSON
+  //   .then(data => {
+  //     // console.log(data.drinks[0].strInstructions)
+  //     data.drinks.forEach(result => {
+  //       console.log(result.strIngredient1)
   
-        let newSpan = document.createElement('div')
-          newSpan.innerHTML = `<span class="drink-ingredient">${ result.strIngredient1 }</p>
-          <span class="drink-ingredient">${ result.strIngredient2 }</p>
-          <span class="drink-ingredient">${ result.strIngredient3 }</p>
-          <span class="drink-ingredient">${ result.strIngredient4 }</p>
-          <span class="drink-ingredient">${ result.strIngredient5 }</p>`
+  //       let newSpan = document.createElement('div')
+  //         newSpan.innerHTML = `<span class="drink-ingredient">${ result.strIngredient1 }</p>
+  //         <span class="drink-ingredient">${ result.strIngredient2 }</p>
+  //         <span class="drink-ingredient">${ result.strIngredient3 }</p>
+  //         <span class="drink-ingredient">${ result.strIngredient4 }</p>
+  //         <span class="drink-ingredient">${ result.strIngredient5 }</p>`
   
-          return newSpan
+  //         return newSpan
   
-      })
-    })
-    .catch(err => {
-      console.log(`error ${err}`)
-  })
-  }
+  //     })
+  //   })
+  //   .catch(err => {
+  //     console.log(`error ${err}`)
+  // })
+  // }
   
 
 
 
 
 
-  const createModal = (result) => {
+  // const createModal = (result) => {
 
-      let newDiv = document.createElement('div')
-          newDiv.className = 'modal'
-          newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
-                              <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
-                            `
-          return newDiv
-  }
+  //     let newDiv = document.createElement('div')
+  //         newDiv.className = 'modal'
+  //         newDiv.innerHTML = `<span class="modal-name">${ result.strDrink }</span>
+  //                             <img class="modal-img" src="${ result.strDrinkThumb }" alt="${ result.strDrink }">
+  //                           `
+  //         return newDiv
+  // }
 
