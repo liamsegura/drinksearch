@@ -12,8 +12,7 @@ const modalImage = document.querySelector('.modal-img')
 const modalInstructions = document.querySelector('.modal-instructions')
 //model section
 const modelSection = document.querySelector('.model-section')
-//
-const ingredients = document.querySelector('.name-ingredients')
+
 
 
 
@@ -21,7 +20,7 @@ const ingredients = document.querySelector('.name-ingredients')
 let fetchHandle
 
 
-// dynamic search bar eventlistner
+// dynamic search bar eventlistener
 document.querySelector('input').addEventListener('keyup', () => {
   //check if theres already a timeout, if there is then cancel it
   if(fetchHandle) clearTimeout(fetchHandle)
@@ -29,35 +28,19 @@ document.querySelector('input').addEventListener('keyup', () => {
   fetchHandle = setTimeout(runSearch, 300)
 })
 
-
 //function to fetch data for input
 const runSearch = () => {
-  list.innerHTML = ""
     //takes value from the search bar
     let drink = document.querySelector('input').value 
   //replaces spaces with underscores for https
     let drinkUnderscore = drink.replace(/ /g,"_")
     
     if(drink !== ""){
-            fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkUnderscore}`)
-            .then(res => res.json()) // parse response as JSON
-            .then(data => {
-              // console.log(data.drinks)
-              data.drinks.forEach(result => {
-               
-                //return random drink to variable 
-                createItem(result)
-          
-              })
-            }) 
-          
-            .catch(err => {
-                console.log(`error ${err}`)
-           });
-}
+            fetchData(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkUnderscore}`)
+    }
 }
    
-//CODE FOR APENDING TO LIST(ALPHABET)
+
  
 // event listener for each letter
 ['a','b','c','d','e','f','g','h',
@@ -67,72 +50,43 @@ const runSearch = () => {
 
 // function for alphabet selection
 function letterChoice(choice){
-  list.innerHTML = ""
-          fetch(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${choice}`)
-          .then(res => res.json()) // parse response as JSON
-          .then(data => {
-            // console.log(data.drinks)
-            data.drinks.forEach(result => {
-             
-              //return random drink to variable 
-              createItem(result)
+
+  fetchData(`https://www.thecocktaildb.com/api/json/v1/1/search.php?f=${choice}`)
         
-            })
-          }) 
-        
-          .catch(err => {
-              console.log(`error ${err}`)
-         });
 }
 
 //even listener for each spirit
 ["rum", "gin", "vodka", "tequila", "whisky"].forEach(choice => document.getElementById(choice).addEventListener('click', () => spiritChoice(choice)))
 
+
 // function for ingredient selection
 function spiritChoice(choice){
-  list.innerHTML = ""
-          fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${choice}`)
-                .then(res => res.json()) // parse response as JSON
-                .then(data => {
-                  // console.log(data.drinks)
-                  data.drinks.forEach(result => {
-                   
-                    //return random drink to variable 
-                    createItem(result)
-              
-                  })
-                }) 
-              
-                .catch(err => {
-                    console.log(`error ${err}`)
-               });
+  
+  fetchData(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${choice}`)
+  
 }
 
   //None alchoholic section
-document.getElementById('non-alcoholic').addEventListener('click', () => {
-  list.innerHTML = ""
-          fetch(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
-          .then(res => res.json()) // parse response as JSON
-          .then(data => {
-            // console.log(data.drinks)
-            data.drinks.forEach(result => {
-             
-              //return random drink to variable 
-              createItem(result)
-        
-            })
-          }) 
-        
-          .catch(err => {
-              console.log(`error ${err}`)
-         });
-        })
+document.getElementById('non-alcoholic').addEventListener('click', () => { 
+  
+  fetchData(`https://www.thecocktaildb.com/api/json/v1/1/filter.php?a=Non_Alcoholic`)
+
+})
         
 
 //random drink
 document.getElementById('random-drink').addEventListener('click', () => {
+
+  fetchData(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+
+})
+
+//clears html, fetches data to grab ID and runs createItem with ID as param
+const fetchData = (data) => { 
+  
   list.innerHTML = ""
-  fetch(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
+
+  fetch(data)
   .then(res => res.json()) // parse response as JSON
   .then(data => {
     // console.log(data.drinks)
@@ -147,8 +101,8 @@ document.getElementById('random-drink').addEventListener('click', () => {
   .catch(err => {
       console.log(`error ${err}`)
  });
-})
 
+}
 
 
 //variable to create HTML with a param for data
@@ -214,18 +168,13 @@ const createItem = (result) => {
             modalInstructions.classList.remove('open')
         }
       })
-
           modelSection.appendChild(createModal(result))
-         
-
           })
           list.appendChild(newLi)
         })
-  
       .catch(err => {
         console.log(`error ${err}`)
     })
-
   }
 
 
