@@ -34,12 +34,12 @@ spiritsBtn.addEventListener('click', () => {
       randomContainer.classList.add('hide')
       searchContainer.classList.add('hide')
      })
-randomBtn.addEventListener('click', () => {
-    alphabetContainer.classList.add('hide')
-      spiritContainer.classList.add('hide')
-      randomContainer.classList.remove('hide')
-      searchContainer.classList.add('hide')
-     })
+// randomBtn.addEventListener('click', () => {
+//     alphabetContainer.classList.add('hide')
+//       spiritContainer.classList.add('hide')
+//       randomContainer.classList.remove('hide')
+//       searchContainer.classList.add('hide')
+//      })
 
 // alphabetBtn.addEventListener('.')
 // spiritsBtn.addEventListener('.spirits-btn')
