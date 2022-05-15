@@ -1,3 +1,10 @@
+
+:root{
+  --background-color: #FDFFE4;
+  --button-color: #327D38;
+  --button-hover-color: #699368;
+}
+
 /******************************************
 /* CSS
 /*******************************************/
@@ -26,15 +33,13 @@ html{
 	vertical-align: baseline;
 }
 body{
-  background: #f3f3f3;
+  background: var(--background-color)
 }
 ul{
-  list-style: none;
   padding: 0;
+  list-style: none;
 }
-li{
-  display: flex;
-}
+
 p{
   padding: 0;
   margin: 0;
@@ -49,47 +54,109 @@ nav{
 .nav-container{
   padding: 30px 30px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  height: 90px;
+  align-items: center;
 }
+.nav-container li:first-child{
+  margin-right: auto;
+}
+
+
+/* buttons */
+.fa-search{
+  color: white;
+}
+li .fa-search{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  height: 45px;
+  width: 45px;
+  list-style: none;
+  margin-left: 5px;
+}
+
+
 .search {
-  width: 30%;
   display: flex;
+  border: 1px solid blue;
+  /* display: flex; */
+  width: 100%;
+  height: 90px;
+  padding: 0px 10px 10px 10px;
 }
+
 .searchTerm {
   width: 100%;
-  border: 3px solid rgb(233, 232, 232);
+  height: 45px;
+  border: 4px solid var(--button-hover-color);
   border-right: none;
   padding: 5px;
-  height: 36px;
-  border-radius: 5px 0 0 5px;
+  border-radius: 15px 0 0 15px;
   outline: none;
   color: rgb(236, 236, 236);
 }
 .searchTerm:focus{
-  color: #1a1a1a;
+  color: white;
 }
 .searchButton {
+  height: 45px;
   border: none;
-  border-radius: 0 5px 5px 0;
-  background: rgb(233, 232, 232);
-  padding: 0px 30px 0px 30px;
+  border-radius: 0 15px 15px 0;
+  background: var(--button-hover-color);
+  padding: 0px 22.5px 0px 22.5px;
 }
 /* ALPHABET */
 .alphabet-container{
   display: flex;
   justify-content: flex-end;
-  padding: 0px 10px 20px 10px;
+  padding: 0px 10px 0px 10px;
+  border:1px solid green;
+  height: 90px;
 }
 .alphabet{
-  padding: 10px;
-  background-color: rgb(233, 232, 232);
-  border-radius: 5px;
+  padding: 15px 70px 15px 15px;
+  width: 100%;
+  background-color: var(--button-hover-color);
+  border-radius: 15px;
+}
+.alphabet span{
+  font-size:1.7rem;
+  letter-spacing: 3px; 
+  font-weight: 250;
+  color:white;
 }
 
+/* spirits container */
+.spirits-container{
+  display: flex;
+  justify-content: flex-end;
+  padding: 0px 10px 0px 10px;
+  border:1px solid green;
+  height: 90px;
+}
+.spirits{
+  padding: 15px 70px 15px 15px;
+  width: 100%;
+  background-color: var(--button-hover-color);
+  border-radius: 15px;
+}
+.spirits span{
+  font-size:1.2rem;
+  line-height: 2rem;
+  padding:  3px 10px;
+  border-radius: 10px;
+  background-color: black;
+  margin: 10px; 
+  font-weight: 250;
+  color:white;
+}
 
 /* MAIN CONTAINER */
 .main-container{
   margin: 0rem 0.5rem 0rem 0.5rem;
+  background-image: url(/images/favpng_mojito-juice-lemonade-drink-poster.png);
 }
 
 /* GRID FOR CARDS */
@@ -106,10 +173,15 @@ nav{
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
-  background-color: rgb(233, 232, 232);
+
   display: flex;
   flex-basis: calc(50% - 0.25rem);
   transition: background-color 300ms ease;
+  list-style: none;
+  background-color: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(6px);
+
+
 }
 .card-container:hover{
   background-color: #ffffff;
@@ -130,11 +202,13 @@ nav{
 .drink-name{
   font-weight: 400;
   margin-bottom: 2px;
+  color: #ffffff;
 }
 .drink-ingredient{
   margin-top: 1px;
   font-size: 1rem;
   font-weight: 200;
+  color: #ffffff;
 }
 .drink-instructions{
   font-weight: 200;
@@ -159,6 +233,7 @@ nav{
   justify-content: center;
   align-items: center;
   margin: 2rem 5rem;
+  border: 1px solid red;
 }
 .modal.open{
   opacity: 1;
@@ -195,13 +270,9 @@ nav{
 
     /* NAV */
   .nav-container{
-    padding: 10px 0px;
-    display: flex;
-  }
-  .search {
-    display: flex;
-    width: 70%;
+    border: 1px solid red;
     padding: 10px;
+    display: flex;
   }
 
   /* MAIN */
@@ -217,11 +288,12 @@ nav{
     cursor: pointer;
     padding: 10px;
     border-radius: 10px;
-    background-color: rgb(233, 232, 232);
     display: flex;
     transition: none;
     flex-basis: 100%;
     justify-content:flex-start;
+    background-color: rgba(0, 0, 0, 0.36);
+  backdrop-filter: blur(6px);
   }
   .card-container:hover{
     background-color: #ffffff;
