@@ -105,18 +105,17 @@ const createItem = (result) => {
         // console.log(data.drinks)
         returned = data.drinks[0]
 
+        if(returned.strIngredient2 === null){
+          returned.strIngredient2 = ''
+         }
         if(returned.strIngredient3 === null){
-          returned.strIngredient3 = ""
+          returned.strIngredient3 = ''
          }
          if(returned.strIngredient4 === null){
-          returned.strIngredient4 = ""
+          returned.strIngredient4 = ''
          }
-         if(returned.strIngredient5 === null){
-          returned.strIngredient5 = ""
-         }
-         if(returned.strIngredient2 === null){
-          returned.strIngredient2 = ""
-         }
+    
+        
          
 
         let newLi = document.createElement('li');
@@ -124,11 +123,12 @@ const createItem = (result) => {
         newLi.innerHTML =  ` <img class="card-img" src="${ returned.strDrinkThumb }" alt="${ result.strDrink }">
                              <div class="name-ingredients">   
                                   <span class="drink-name">${ returned.strDrink }</span> 
-                                  <span class="drink-ingredient">${ returned.strIngredient1 }</p>
-                                  <span class="drink-ingredient">${ returned.strIngredient2 }</p>
-                                  <span class="drink-ingredient">${ returned.strIngredient3 }</p>
-                                  <span class="drink-ingredient">${ returned.strIngredient4 }</p>
-                                  <span class="drink-ingredient">${ returned.strIngredient5 }</p>
+                                  <div class="ingredients-container">
+                                    <span class="drink-ingredient">${ returned.strIngredient1 }</span>
+                                    <span class="drink-ingredient">${ returned.strIngredient2 }</span>
+                                    <span class="drink-ingredient">${ returned.strIngredient3 }</span>
+                                    <span class="drink-ingredient">${ returned.strIngredient4 }</span>
+                                  </div>
                              </div> `
         newLi.classList.add('new-box')
 

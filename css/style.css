@@ -33,7 +33,23 @@ html{
 	vertical-align: baseline;
 }
 body{
-  background: var(--background-color)
+  background: var(--background-color);
+}
+main{
+  height: 100vh;
+  background-image: url(/images/favpng_mojito-juice-lemonade-drink-poster.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: 200px;
+}
+.main-container{
+  background-image: url(/images/favpng_mojito-juice-lemonade-drink-poster.png);
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position-y: 200px;
 }
 ul{
   padding: 0;
@@ -47,16 +63,27 @@ p{
 }
 
 /* NAV SECTION */
+.nav-fixed{
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--background-color);
+}
 nav{
   display: flex;
   flex-direction: column;
+ 
+  z-index: 999;
 }
 .nav-container{
-  padding: 30px 30px;
+
+  padding: 10px 10px 0px 5px;
   display: flex;
   justify-content: space-between;
-  height: 90px;
+  height: 75px;
   align-items: center;
+  background-color: var(--background-color);
 }
 .nav-container li:first-child{
   margin-right: auto;
@@ -79,7 +106,7 @@ li .fa-search{
 
 
 .search {
-  display: flex;
+  display: none;
   border: 1px solid blue;
   /* display: flex; */
   width: 100%;
@@ -109,10 +136,9 @@ li .fa-search{
 }
 /* ALPHABET */
 .alphabet-container{
-  display: flex;
+  display: none;
   justify-content: flex-end;
   padding: 0px 10px 0px 10px;
-  border:1px solid green;
   height: 90px;
 }
 .alphabet{
@@ -133,7 +159,6 @@ li .fa-search{
   display: flex;
   justify-content: flex-end;
   padding: 0px 10px 0px 10px;
-  border:1px solid green;
   height: 90px;
 }
 .spirits{
@@ -155,8 +180,7 @@ li .fa-search{
 
 /* MAIN CONTAINER */
 .main-container{
-  margin: 0rem 0.5rem 0rem 0.5rem;
-  background-image: url(/images/favpng_mojito-juice-lemonade-drink-poster.png);
+ 
 }
 
 /* GRID FOR CARDS */
@@ -173,7 +197,6 @@ li .fa-search{
   cursor: pointer;
   padding: 10px;
   border-radius: 10px;
-
   display: flex;
   flex-basis: calc(50% - 0.25rem);
   transition: background-color 300ms ease;
@@ -184,7 +207,8 @@ li .fa-search{
 
 }
 .card-container:hover{
-  background-color: #ffffff;
+  background-color: #2c2c2c
+;
 }
 .card-img{
   display: block;
@@ -197,23 +221,35 @@ li .fa-search{
   display:flex;
   flex-direction: column;
   justify-content: space-around;
-  
+  width:60%;
 }
 .drink-name{
   font-weight: 400;
-  margin-bottom: 2px;
+  font-size: 1.5rem;
+  margin-bottom: 5px;
   color: #ffffff;
+ 
 }
 .drink-ingredient{
+  padding: 2px;
+  border-radius: 5px;
   margin-top: 1px;
+  line-height: 25px;
   font-size: 1rem;
   font-weight: 200;
   color: #ffffff;
+  background-color: black;
+}
+.drink-ingredient:empty
+{
+    display:none;
 }
 .drink-instructions{
   font-weight: 200;
 }
-
+.random-drink-container{
+  display: none;
+}
 /* POP UP modal */
 .modal{
   text-align: center;
@@ -268,16 +304,12 @@ li .fa-search{
 /* MOBILE STYLE */
 @media (max-width:600px) {
 
-    /* NAV */
-  .nav-container{
-    border: 1px solid red;
-    padding: 10px;
-    display: flex;
-  }
+
 
   /* MAIN */
   .main-container{
-    margin: 0px 10px 0px 10px;
+    margin: 10px;
+    margin-top: 174px;
     /* display: grid;
     gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
@@ -293,10 +325,10 @@ li .fa-search{
     flex-basis: 100%;
     justify-content:flex-start;
     background-color: rgba(0, 0, 0, 0.36);
-  backdrop-filter: blur(6px);
+   backdrop-filter: blur(6px);
   }
   .card-container:hover{
-    background-color: #ffffff;
+
   }
   .card-img{
       max-width: 100px;
