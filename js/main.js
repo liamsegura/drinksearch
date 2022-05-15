@@ -7,6 +7,14 @@ const modalSection = document.querySelector('.model-section')
 //empty variable for tracking timeouts
 let fetchHandle
 
+//test mobilekeyboardhide
+const acceptsInput = (elem) => {
+  if (!elem) {
+    return false
+  }
+  let tag = elem.tagName
+  return tag == 'INPUT' || tag == 'SELECT' || tag == 'TEXTAREA' || elem.isContentEditable || elem.tabIndex >= 0
+}
 
 
 
