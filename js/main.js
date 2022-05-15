@@ -15,7 +15,12 @@ const acceptsInput = (elem) => {
   let tag = elem.tagName
   return tag == 'INPUT' || tag == 'SELECT' || tag == 'TEXTAREA' || elem.isContentEditable || elem.tabIndex >= 0
 }
-
+document.addEventListener('touchend', (e) => {
+  let target = e.target
+  if(!acceptsInput(target)){
+    document.activeElement.blur()
+  }
+})
 
 
 // dynamic search bar eventlistener
