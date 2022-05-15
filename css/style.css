@@ -49,6 +49,7 @@ main{
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  -webkit-background-attachment: fixed;
   background-position-y: 200px;
 }
 ul{
@@ -62,6 +63,9 @@ p{
   width: 100%;
 }
 
+a{
+  text-decoration: none;
+}
 /* NAV SECTION */
 .nav-fixed{
   position: fixed;
@@ -172,10 +176,10 @@ li .fa-search{
   line-height: 2rem;
   padding:  3px 10px;
   border-radius: 10px;
-  background-color: black;
+  background-color: white;
   margin: 10px; 
   font-weight: 250;
-  color:white;
+  color:black;
 }
 
 /* MAIN CONTAINER */
@@ -199,18 +203,8 @@ li .fa-search{
   border-radius: 10px;
   display: flex;
   flex-basis: calc(50% - 0.25rem);
-  list-style: none;
-  background-color: rgba(0, 0, 0, 0.36);
-  backdrop-filter: blur(10px);
-   -webkit-backdrop-filter: blur(10px);
-   border:1px solid rgba(255, 255, 255, 0.18);
-   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-   transition: all 300ms ease;
 }
-.card-container:hover{
-  background-color: rgba(0, 0, 0, 0.66);
 
-}
 .card-img{
   display: block;
   margin-right: 1rem;
@@ -238,8 +232,8 @@ li .fa-search{
   line-height: 25px;
   font-size: 1rem;
   font-weight: 200;
-  color: #ffffff;
-  background-color: black;
+  color: black;
+  background-color: white;
 }
 .drink-ingredient:empty
 {
@@ -329,8 +323,19 @@ li .fa-search{
     transition: none;
     flex-basis: 100%;
     justify-content:flex-start;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.66);
+    backdrop-filter: blur(10px);
+     -webkit-backdrop-filter: blur(10px);
+     border:1px solid rgba(255, 255, 255, 0.18);
+     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+     transition: all 300ms ease;
+  }
+  .card-container:hover{
     background-color: rgba(0, 0, 0, 0.36);
-   backdrop-filter: blur(6px);
+  
+  }
+
   }
   .card-container:hover{
 
