@@ -20,6 +20,7 @@ document.querySelector('input').addEventListener('keyup', () => {
 
 //function to fetch data for input
 const runSearch = () => {
+  window.scrollTo(0,0)
     //takes value from the search bar
     let drink = document.querySelector('input').value 
   //replaces spaces with underscores for https
