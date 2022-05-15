@@ -110,6 +110,10 @@ li .fa-search{
   margin-left: 5px;
 }
 
+
+.nav-bottom-container{
+  display:none;
+}
 .search {
   display: flex;
   /* display: flex; */
@@ -140,46 +144,50 @@ li .fa-search{
 }
 /* ALPHABET */
 .alphabet-container{
-  display: flex;
+  display: none;
   justify-content: flex-end;
+  align-items: center;
   padding: 0px 10px 0px 10px;
-  height: 90px;
 }
 .alphabet{
-  padding: 15px 70px 15px 15px;
+  padding: 10px;
   width: 100%;
-  background-color: var(--button-hover-color);
+  background-color: white;
+  border: 4px solid var(--button-hover-color);
   border-radius: 15px;
 }
 .alphabet span{
   font-size:1.7rem;
   letter-spacing: 3px; 
   font-weight: 250;
-  color:white;
+  color:black;
 }
 
 /* spirits container */
 .spirits-container{
-  display: flex;
+  display: none;
   justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   padding: 0px 10px 0px 10px;
-  height: 90px;
 }
 .spirits{
-  padding: 15px 70px 15px 15px;
   width: 100%;
   background-color: var(--button-hover-color);
   border-radius: 15px;
+  padding:10px;
+  background-color: white;
+  border: 4px solid var(--button-hover-color);
 }
 .spirits span{
   font-size:1.2rem;
   line-height: 2rem;
   padding:  3px 10px;
   border-radius: 10px;
-  background-color: white;
+  background-color: black;
   margin: 10px; 
   font-weight: 250;
-  color:black;
+  color:white
 }
 
 /* MAIN CONTAINER */
@@ -200,7 +208,7 @@ li .fa-search{
   justify-content: flex-start;
   cursor: pointer;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   display: flex;
   flex-basis: calc(50% - 0.25rem);
 }
@@ -302,7 +310,8 @@ li .fa-search{
 }
 
 .hide{
-  display: none;
+  display: flex;
+  animation: append-animate .4s ease;
 }
 
 /* MOBILE STYLE */

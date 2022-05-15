@@ -17,22 +17,28 @@ const randomContainer =  document.querySelector('.random-drink-container')
 
 
 searchBtn.addEventListener('click', () => {
-      searchContainer.classList.remove('hide')
-      alphabetContainer.classList.add('hide')
-      spiritContainer.classList.add('hide')
-      randomContainer.classList.add('hide')
+      searchContainer.classList.add('hide')
+
+      alphabetContainer.classList.remove('hide')
+
+      spiritContainer.classList.remove('hide')
+  
+      randomContainer.classList.remove('hide')
      })
 alphabetBtn.addEventListener('click', () => {
-      alphabetContainer.classList.remove('hide')
-      spiritContainer.classList.add('hide')
-      randomContainer.classList.add('hide')
-      searchContainer.classList.add('hide')
+      alphabetContainer.classList.add('hide')
+
+      spiritContainer.classList.remove('hide')
+     
+      randomContainer.classList.remove('hide')
+
+      searchContainer.classList.remove('hide')
      })
 spiritsBtn.addEventListener('click', () => {
-      alphabetContainer.classList.add('hide')
-      spiritContainer.classList.remove('hide')
-      randomContainer.classList.add('hide')
-      searchContainer.classList.add('hide')
+      alphabetContainer.classList.remove('hide')
+      spiritContainer.classList.add('hide')
+      randomContainer.classList.remove('hide')
+      searchContainer.classList.remove('hide')
      })
 // randomBtn.addEventListener('click', () => {
 //     alphabetContainer.classList.add('hide')
