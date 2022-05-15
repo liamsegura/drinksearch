@@ -46,7 +46,7 @@ function letterChoice(choice){
 }
 
 //even listener for each spirit
-["rum", "gin", "vodka", "tequila", "whisky"].forEach(choice => document.getElementById(choice).addEventListener('click', () => spiritChoice(choice)))
+["rum", "gin", "vodka", "tequila"].forEach(choice => document.getElementById(choice).addEventListener('click', () => spiritChoice(choice)))
 
 
 // function for ingredient selection
@@ -134,9 +134,12 @@ const createItem = (result) => {
 
         let newDiv = document.createElement('div')
               newDiv.className = 'modal'
-              newDiv.innerHTML = `<span class="modal-name">${ returned.strDrink }</span>
+              newDiv.innerHTML = `<div class="modal-container">
+                                  <span class="modal-name">${ returned.strDrink }</span>
                                   <img class="modal-img" src="${ returned.strDrinkThumb }" alt="${ returned.strDrink }">
-                                `            
+                                  <span class="modal-instructions">${ returned.strInstructions }</span>
+                                  </div>
+                                  `            
                 console.log('test')
                   //adds open class to display modal and image
 

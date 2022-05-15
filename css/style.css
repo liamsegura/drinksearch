@@ -142,50 +142,50 @@ nav{
 
 /* POP UP modal */
 .modal{
-  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  background: rgba(64, 64, 64, 0.9);
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   opacity: 0;
   pointer-events: none;
   transition: all 0.25s ease-out;
+}
+.modal-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 5rem;
 }
 .modal.open{
   opacity: 1;
   pointer-events: all;
 }
 .modal-name{
-  font-size: 1.1rem;
-  font-weight: 400;
-  width: 80%;
-  position: absolute;
-  top: 5%;
-  left: 83%;
-  transform: translate(-50%, -5%);
+ padding: 20px 80px;
+ background-color: rgb(34, 34, 34);
+ color: white;
+ width: 250px;
+ margin-bottom: 1rem;
+ border-radius: 15px;
 }
 .modal-img{
-  width: 300px;
-  height: 300px;
-  position: absolute;
-  top: 33%;
-  left: 50%;
-  transform: translate(-50%, -50%)scale(0.5);
-  transition: all 0.25s ease-out;
-  border-radius: 30px;
+  width: 250px;
+  margin-bottom: 1rem;
+  border-radius: 15px;
 }
 .modal-img.open{
   transform: translate(-50%, -50%)scale(1);
 }
 .modal-instructions{
-  font-size: 1.2rem;
-  font-weight: 300;
-  width: 50%;
-  position: absolute;
-  top: 60%;
-  left: 52%;
-  transform: translate(-50%, -5%);
+  padding: 20px;
+ background-color: rgb(34, 34, 34);
+ color: white;
+ width: 250px;
+ border-radius: 15px;
 }
 
 /* MOBILE STYLE */
@@ -238,7 +238,6 @@ nav{
 
   /* POP UP modal */
   .modal{
-    background: rgba(255, 255, 255, 0.9);
     position: fixed;
     top: 0;
     left: 0;
@@ -253,35 +252,15 @@ nav{
     pointer-events: all;
   }
   .modal-name{
-    font-size: 1.1rem;
-    font-weight: 400;
-    width: 80%;
-    position: absolute;
-    top: 5%;
-    left: 83%;
-    transform: translate(-50%, -5%);
+
   }
   .modal-img{
-    width: 300px;
-    height: 300px;
-    position: absolute;
-    top: 33%;
-    left: 50%;
-    transform: translate(-50%, -50%)scale(0.5);
-    transition: all 0.25s ease-out;
+
   }
   .modal-img.open{
     transform: translate(-50%, -50%)scale(1);
   }
-  .modal-instructions{
-    font-size: 1rem;
-    font-weight: 300;
-    width: 80%;
-    position: absolute;
-    top: 60%;
-    left: 52%;
-    transform: translate(-50%, -5%);
-  }
+
 }
 
 @keyframes append-animate {
