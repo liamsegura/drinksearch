@@ -4,10 +4,54 @@ const list = document.querySelector('.results')
 //pop up section
 const modalSection = document.querySelector('.model-section')
 
+
+const searchBtn = document.getElementById('search-btn')
+const alphabetBtn = document.getElementById('alphabet-btn')
+const spiritsBtn = document.getElementById('spirits-btn')
+const randomBtn = document.getElementById('random-btn')
+
+const searchContainer = document.querySelector('.nav-bottom-container')
+const alphabetContainer = document.querySelector('.alphabet-container')
+const spiritContainer = document.querySelector('.spirits-container')
+const randomContainer =  document.querySelector('.random-drink-container')
+
+
+searchBtn.addEventListener('click', () => {
+      searchContainer.classList.remove('hide')
+      alphabetContainer.classList.add('hide')
+      spiritContainer.classList.add('hide')
+      randomContainer.classList.add('hide')
+     })
+alphabetBtn.addEventListener('click', () => {
+      alphabetContainer.classList.remove('hide')
+      spiritContainer.classList.add('hide')
+      randomContainer.classList.add('hide')
+      searchContainer.classList.add('hide')
+     })
+spiritsBtn.addEventListener('click', () => {
+      alphabetContainer.classList.add('hide')
+      spiritContainer.classList.remove('hide')
+      randomContainer.classList.add('hide')
+      searchContainer.classList.add('hide')
+     })
+randomBtn.addEventListener('click', () => {
+    alphabetContainer.classList.add('hide')
+      spiritContainer.classList.add('hide')
+      randomContainer.classList.remove('hide')
+      searchContainer.classList.add('hide')
+     })
+
+// alphabetBtn.addEventListener('.')
+// spiritsBtn.addEventListener('.spirits-btn')
+// randomBtn.addEventListener('.random-btn')
+
+
+
+
 //empty variable for tracking timeouts
 let fetchHandle
 
-//test mobilekeyboardhide
+//hides mobilekeyboard when pressing off of it
 const acceptsInput = (elem) => {
   if (!elem) {
     return false
@@ -79,7 +123,7 @@ document.getElementById('non-alcoholic').addEventListener('click', () => {
         
 
 //random drink
-document.getElementById('random-drink').addEventListener('click', () => {
+document.getElementById('random-btn').addEventListener('click', () => {
 
   fetchData(`https://www.thecocktaildb.com/api/json/v1/1/random.php`)
 

@@ -93,7 +93,9 @@ nav{
   margin-right: auto;
 }
 
-
+#logo{
+  font-size: 2rem;
+}
 /* buttons */
 .fa-search{
   color: white;
@@ -107,7 +109,6 @@ li .fa-search{
   list-style: none;
   margin-left: 5px;
 }
-
 
 .search {
   display: flex;
@@ -139,7 +140,7 @@ li .fa-search{
 }
 /* ALPHABET */
 .alphabet-container{
-  display: none;
+  display: flex;
   justify-content: flex-end;
   padding: 0px 10px 0px 10px;
   height: 90px;
@@ -159,7 +160,7 @@ li .fa-search{
 
 /* spirits container */
 .spirits-container{
-  display: none;
+  display: flex;
   justify-content: flex-end;
   padding: 0px 10px 0px 10px;
   height: 90px;
@@ -298,6 +299,10 @@ li .fa-search{
  width: 250px;
  border-radius: 15px;
  font-size: 0.8rem;
+}
+
+.hide{
+  display: none;
 }
 
 /* MOBILE STYLE */
