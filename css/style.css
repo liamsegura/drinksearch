@@ -165,7 +165,7 @@ nav{
   pointer-events: all;
 }
 .modal-name{
- padding: 20px 80px;
+ padding: 20px 0px;
  background-color: rgb(34, 34, 34);
  color: white;
  width: 250px;
@@ -181,11 +181,13 @@ nav{
   transform: translate(-50%, -50%)scale(1);
 }
 .modal-instructions{
-  padding: 20px;
+  padding: 20px 10px;
+  margin-bottom: 10px;
  background-color: rgb(34, 34, 34);
  color: white;
  width: 250px;
  border-radius: 15px;
+ font-size: 0.8rem;
 }
 
 /* MOBILE STYLE */
