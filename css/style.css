@@ -79,6 +79,10 @@ nav{
 .nav-container li:first-child{
   margin-right: auto;
 }
+button svg{
+  height: 20px;
+  width: 20px;
+}
 
 #logo{
 margin-bottom: 2px;
@@ -146,13 +150,14 @@ li .fa-search{
 
 .nav-bottom-container{
   display:none;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
 }
 .search {
   display: flex;
-  /* display: flex; */
+  align-items: center;
   width: 100%;
-  padding: 0px 10px 10px 10px;
+  padding: 0px 10px 0px 100px;
 }
 
 .searchTerm {
@@ -173,7 +178,7 @@ li .fa-search{
   border: none;
   border-radius: 0 15px 15px 0;
   background: var(--button-hover-color);
-  padding: 0px 10px 0px 10px;
+  padding: 2px 15px 0px 10px;
 }
 /* ALPHABET */
 .alphabet-container{
@@ -224,10 +229,14 @@ li .fa-search{
 }
 
 /* MAIN CONTAINER */
-.main-container{
- 
+.hero-container{
+
 }
 .hero{
+  overflow: hidden;
+  position:fixed;
+  top:0;
+  left:0;
   z-index: -999;
 }
 
@@ -360,8 +369,7 @@ li .fa-search{
   /* MAIN */
   .main-container{
     margin: 10px;
-    margin-top: 115px;
-
+    margin-top: 105px;
   }
   .hero{
     display: flex;
@@ -382,6 +390,7 @@ li .fa-search{
     line-height: 55px;
     margin: 0;
     margin-bottom: 1rem;
+    width: 80%;
   
   }
   .hero p{
@@ -402,6 +411,14 @@ li .fa-search{
     border-radius: 15px;
     background-color: var(--button-color);
     color: white;
+  }
+  #blob{
+      overflow: hidden;
+ 
+  z-index: -999;
+    position: fixed;
+    top:300px;
+    left:0;
   }
   /* CARD RESULTS FROM SEARCH */
   .card-container{
