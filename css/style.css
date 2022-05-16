@@ -359,11 +359,9 @@ li .fa-search{
 
   /* MAIN */
   .main-container{
-    /* margin: 10px;
-    margin-top: 175px; */
-    /* display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    margin: 10px;
+    margin-top: 115px;
+
   }
   .hero{
     display: flex;
@@ -422,7 +420,7 @@ li .fa-search{
      box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.27);
      transition: all 300ms ease;
      z-index: 66;
-     margin-top:125px;
+
   }
   .card-container:hover{
     background-color: rgba(0, 0, 0, 0.56);
