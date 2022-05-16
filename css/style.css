@@ -94,7 +94,8 @@ nav{
 }
 
 #logo{
-
+margin-bottom: 2px;
+margin-left: 6px;
 }
 #search-btn{
   padding: 10px;
