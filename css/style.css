@@ -375,13 +375,15 @@ li .fa-search{
   }
   .hero img{
     width: 75%;
+    margin-left: 20px;
   }
   .hero h1{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 50px;
     line-height: 55px;
-   margin-top: 0;
+    margin: 0;
+    margin-bottom: 1rem;
   
   }
   .hero p{
@@ -390,7 +392,9 @@ li .fa-search{
     font-size: 23px;
     line-height: 35px;
     width: 70%;
-    margin-top: 0;
+    margin: 0;
+    margin-bottom: 1rem;
+  
   }
   .primary-btn{
     font-family: 'Poppins', sans-serif;
