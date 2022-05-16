@@ -9,6 +9,7 @@ const searchBtn = document.getElementById('search-btn')
 const alphabetBtn = document.getElementById('alphabet-btn')
 const spiritsBtn = document.getElementById('spirits-btn')
 const randomBtn = document.getElementById('random-btn')
+const primaryBtn = document.querySelector('.primary-btn')
 
 const searchContainer = document.querySelector('.nav-bottom-container')
 const alphabetContainer = document.querySelector('.alphabet-container')
@@ -16,7 +17,10 @@ const spiritContainer = document.querySelector('.spirits-container')
 const randomContainer =  document.querySelector('.random-drink-container')
 
 
-searchBtn.addEventListener('click', () => {
+searchBtn.addEventListener('click', searchBar)
+primaryBtn.addEventListener('click', searchBar)
+     
+function searchBar(){
       searchContainer.classList.add('hide')
 
       alphabetContainer.classList.remove('hide')
@@ -24,7 +28,8 @@ searchBtn.addEventListener('click', () => {
       spiritContainer.classList.remove('hide')
   
       randomContainer.classList.remove('hide')
-     })
+     }
+
 alphabetBtn.addEventListener('click', () => {
       alphabetContainer.classList.add('hide')
 
