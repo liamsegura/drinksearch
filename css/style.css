@@ -101,8 +101,8 @@ margin-left: 6px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
-  height: 45px;
-  width: 55px;
+  height: 35px;
+  width: 45px;
   list-style: none;
   margin-left: 5px;
 }
@@ -110,8 +110,8 @@ margin-left: 6px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
-  height: 45px;
-  width: 55px;
+  height: 35px;
+  width: 45px;
   list-style: none;
   margin-left: 5px;
 }
@@ -119,8 +119,8 @@ margin-left: 6px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
-  width: 55px; 
-  height: 45px;
+  width: 45px; 
+  height: 35px;
   list-style: none;
   margin-left: 5px;
 }
@@ -128,8 +128,8 @@ margin-left: 6px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
-  height: 45px;
-  width: 55px;
+  height: 37px;
+  width: 45px;
   list-style: none;
   margin-left: 5px;
 }
@@ -137,8 +137,8 @@ margin-left: 6px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
-  height: 45px;
-  width: 55px;
+  height: 35px;
+  width: 45px;
   list-style: none;
   margin-right: 15px;
 }
@@ -205,8 +205,8 @@ li .fa-search{
 .alphabet span{
   font-size:1.7rem;
   letter-spacing: 3px; 
-  font-weight: 250;
-  color:var(--button-hover-color);
+  font-weight: 200;
+  color:black;
 }
 
 /* spirits container */
