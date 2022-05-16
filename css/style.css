@@ -128,8 +128,8 @@ margin-left: 6px;
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
-  height: 37px;
-  width: 45px;
+  width: 45px; 
+  height: 35px;
   list-style: none;
   margin-left: 5px;
 }
