@@ -94,7 +94,52 @@ nav{
 }
 
 #logo{
-  font-size: 2rem;
+
+}
+#search-btn{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  height: 45px;
+  width: 55px;
+  list-style: none;
+  margin-left: 5px;
+}
+#alphabet-btn{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  height: 45px;
+  width: 55px;
+  list-style: none;
+  margin-left: 5px;
+}
+#spirits-btn{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  width: 55px; 
+  height: 45px;
+  list-style: none;
+  margin-left: 5px;
+}
+#random-btn{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  height: 45px;
+  width: 55px;
+  list-style: none;
+  margin-left: 5px;
+}
+#close-btn{
+  padding: 10px;
+  border-radius: 15px;
+  background-color: var(--button-color);
+  height: 45px;
+  width: 55px;
+  list-style: none;
+  margin-left: 5px;
 }
 /* buttons */
 .fa-search{
