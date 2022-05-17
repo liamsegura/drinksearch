@@ -24,12 +24,14 @@ searchBtn.addEventListener('click', searchBar)
 primaryBtn.addEventListener('click', searchBar)
 closeBtn.forEach(button => 
   button.addEventListener('click', function close(){
+    document.documentElement.style.setProperty('--background-color', '#FDFFE4');
     alphabetContainer.classList.remove('hide')
     spiritContainer.classList.remove('hide')
     randomContainer.classList.remove('hide')
     searchContainer.classList.remove('hide')
     mainContainer.style.marginTop = "80px"
     list.innerHTML = ""
+
   })
 )
      
@@ -69,6 +71,7 @@ spiritsBtn.addEventListener('click', () => {
       mainContainer.style.marginTop = "145px"
      })
 randomBtn.addEventListener('click', () => {
+  document.documentElement.style.setProperty('--background-color', '#daddbc');
   list.innerHTML = ""
       mainContainer.style.marginTop = "80px"
       alphabetContainer.classList.remove('hide')
