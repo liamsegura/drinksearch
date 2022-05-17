@@ -441,11 +441,11 @@ li .fa-search{
     color: white;
   }
   #blob{
-      overflow: hidden;
+      overflow: auto;
  
-  z-index: -999;
+  z-index: -998;
     position: fixed;
-    top:300px;
+    bottom: 120px;
     left:0;
   }
   /* CARD RESULTS FROM SEARCH */
