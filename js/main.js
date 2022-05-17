@@ -217,6 +217,12 @@ const createItem = (result) => {
               newDiv.innerHTML = `<div class="modal-container">
                                   <span class="modal-name">${ returned.strDrink }</span>
                                   <img class="modal-img" src="${ returned.strDrinkThumb }" alt="${ returned.strDrink }">
+                                  <div class="modal-ingredients">
+                                    <span class="drink-ingredient">${ returned.strIngredient1 }</span>
+                                    <span class="drink-ingredient">${ returned.strIngredient2 }</span>
+                                    <span class="drink-ingredient">${ returned.strIngredient3 }</span>
+                                    <span class="drink-ingredient">${ returned.strIngredient4 }</span>
+                                  </div>
                                   <span class="modal-instructions">${ returned.strInstructions }</span>
                                   </div>
                                   `            
