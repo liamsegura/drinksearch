@@ -18,6 +18,8 @@ const randomContainer =  document.querySelector('.random-drink-container')
 
 const closeBtn = document.querySelectorAll('button')
 
+const mainContainer = document.querySelector('.main-container')
+
 searchBtn.addEventListener('click', searchBar)
 primaryBtn.addEventListener('click', searchBar)
 closeBtn.forEach(button => 
@@ -26,7 +28,7 @@ closeBtn.forEach(button =>
     spiritContainer.classList.remove('hide')
     randomContainer.classList.remove('hide')
     searchContainer.classList.remove('hide')
-  
+    mainContainer.style.marginTop = "80px"
   })
 )
      
@@ -39,6 +41,8 @@ function searchBar(){
       spiritContainer.classList.remove('hide')
   
       randomContainer.classList.remove('hide')
+
+      mainContainer.style.marginTop = "95px"
      }
 
 alphabetBtn.addEventListener('click', () => {
@@ -49,19 +53,23 @@ alphabetBtn.addEventListener('click', () => {
       randomContainer.classList.remove('hide')
 
       searchContainer.classList.remove('hide')
+
+      mainContainer.style.marginTop = "145px"
+
      })
 spiritsBtn.addEventListener('click', () => {
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.add('hide')
       randomContainer.classList.remove('hide')
       searchContainer.classList.remove('hide')
+      mainContainer.style.marginTop = "145px"
      })
-// randomBtn.addEventListener('click', () => {
-//     alphabetContainer.classList.add('hide')
-//       spiritContainer.classList.add('hide')
-//       randomContainer.classList.remove('hide')
-//       searchContainer.classList.add('hide')
-//      })
+randomBtn.addEventListener('click', () => {
+      mainContainer.style.marginTop = "80px"
+      alphabetContainer.classList.remove('hide')
+      spiritContainer.classList.remove('hide')
+      searchContainer.classList.remove('hide')
+     })
 
 // alphabetBtn.addEventListener('.')
 // spiritsBtn.addEventListener('.spirits-btn')

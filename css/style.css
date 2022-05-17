@@ -248,11 +248,12 @@ li .fa-search{
 
 }
 .hero{
-  overflow: hidden;
+  overflow: auto;
   position:fixed;
   top:0;
   left:0;
   z-index: -999;
+  max-height: calc(100% - 50px);
 }
 
 /* GRID FOR CARDS */
@@ -393,8 +394,7 @@ li .fa-search{
 
   /* MAIN */
   .main-container{
-    margin: 10px;
-    margin-top: 105px;
+    padding: 10px;
   }
   .hero{
     display: flex;
@@ -407,6 +407,7 @@ li .fa-search{
   .hero img{
     width: 75%;
     margin-left: 20px;
+    margin-top: 31px;
   }
   .hero h1{
     font-family: 'Poppins', sans-serif;
