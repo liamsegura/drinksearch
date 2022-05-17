@@ -16,10 +16,21 @@ const alphabetContainer = document.querySelector('.alphabet-container')
 const spiritContainer = document.querySelector('.spirits-container')
 const randomContainer =  document.querySelector('.random-drink-container')
 
+const closeBtn = document.querySelectorAll('button')
 
 searchBtn.addEventListener('click', searchBar)
 primaryBtn.addEventListener('click', searchBar)
+closeBtn.forEach(button => 
+  button.addEventListener('click', function close(){
+    alphabetContainer.classList.remove('hide')
+    spiritContainer.classList.remove('hide')
+    randomContainer.classList.remove('hide')
+    searchContainer.classList.remove('hide')
+  
+  })
+)
      
+
 function searchBar(){
       searchContainer.classList.add('hide')
 
