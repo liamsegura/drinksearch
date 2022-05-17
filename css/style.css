@@ -247,6 +247,8 @@ li .fa-search{
 
 }
 .hero{
+  overflow-y:scroll;
+  overflow-x:hidden;
   overflow: auto;
   position:fixed;
   top:0;
@@ -407,26 +409,26 @@ li .fa-search{
     background: var(--background-color);
   }
   .hero img{
-    width: 75%;
+    width: 65%;
     margin-left: 20px;
-    margin-top: 31px;
+    margin-top: 180px;
   }
   .hero h1{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
-    font-size: 3rem;
-    line-height: 2.5rem;
+    font-size: 2.6rem;
+    line-height: 2.6rem;
     margin: 0;
     margin-bottom: 1rem;
-    width: 80%;
+    width: 60%;
   
   }
   .hero p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.8rem;
     line-height: 1.5rem;
-    width: 70%;
+    width: 50%;
     margin: 0;
     margin-bottom: 1rem;
   
