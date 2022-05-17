@@ -405,13 +405,14 @@ li .fa-search{
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 100px;
+    padding-top: 100px;
     background: var(--background-color);
+    padding-bottom: 30px;
   }
   .hero img{
     width: 65%;
     margin-left: 20px;
-    margin-top: 180px;
+    padding-top: 30px;
   }
   .hero h1{
     font-family: 'Poppins', sans-serif;
@@ -443,9 +444,11 @@ li .fa-search{
     color: white;
   }
   #blob{
-      overflow: auto;
- 
-  z-index: -998;
+    overflow-y:scroll;
+    overflow-x:hidden;
+    overflow: auto;
+    position:fixed;
+  z-index: -990;
     position: fixed;
     bottom: 120px;
     left:0;
