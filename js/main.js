@@ -29,11 +29,13 @@ closeBtn.forEach(button =>
     randomContainer.classList.remove('hide')
     searchContainer.classList.remove('hide')
     mainContainer.style.marginTop = "80px"
+    list.innerHTML = ""
   })
 )
      
 
 function searchBar(){
+  list.innerHTML = ""
       searchContainer.classList.add('hide')
 
       alphabetContainer.classList.remove('hide')
@@ -46,6 +48,7 @@ function searchBar(){
      }
 
 alphabetBtn.addEventListener('click', () => {
+  list.innerHTML = ""
       alphabetContainer.classList.add('hide')
 
       spiritContainer.classList.remove('hide')
@@ -58,6 +61,7 @@ alphabetBtn.addEventListener('click', () => {
 
      })
 spiritsBtn.addEventListener('click', () => {
+  list.innerHTML = ""
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.add('hide')
       randomContainer.classList.remove('hide')
@@ -65,6 +69,7 @@ spiritsBtn.addEventListener('click', () => {
       mainContainer.style.marginTop = "145px"
      })
 randomBtn.addEventListener('click', () => {
+  list.innerHTML = ""
       mainContainer.style.marginTop = "80px"
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.remove('hide')
@@ -186,6 +191,7 @@ const fetchData = (data) => {
 //variable to create HTML with a param for data
 const createItem = (result) => {
 
+  document.documentElement.style.setProperty('--background-color', '#daddbc');
       fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
