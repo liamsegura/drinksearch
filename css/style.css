@@ -243,20 +243,6 @@ li .fa-search{
 }
 
 /* MAIN CONTAINER */
-.hero-container{
-
-}
-.hero{
-  overflow-y:scroll;
-  overflow-x:hidden;
-  overflow: auto;
-  position:fixed;
-  top:0;
-  left:0;
-  z-index: -999;
-  max-height: calc(100% - 50px);
-  background-color: var(--background-color);
-}
 
 /* GRID FOR CARDS */
 .results{
@@ -268,14 +254,21 @@ li .fa-search{
 
 /* CARDS GENERATED FROM SEARCH FUNCTIONS */
 .card-container{
-  align-items: center;
-  justify-content: flex-start;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 15px;
-  display: flex;
   flex-basis: calc(50% - 0.25rem);
-  
+  cursor: pointer;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    transition: none;
+    justify-content:flex-start;
+    list-style: none;
+    background-color: rgba(0, 0, 0, 0.30);
+    backdrop-filter: blur(20px);
+     -webkit-backdrop-filter: blur(20px);
+     border:1px solid rgba(255, 255, 255, 0.18);
+     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.27);
+     transition: all 300ms ease;
+     z-index: 66;
 }
 
 .card-img{
@@ -291,6 +284,7 @@ li .fa-search{
   justify-content: space-around;
   width:60%;
   word-break: keep-all;
+  padding: 20px 0px;
 }
 .drink-name{
   font-weight: 400;
@@ -320,6 +314,12 @@ li .fa-search{
   display: none;
 }
 /* POP UP modal */
+
+
+.modal-img.open{
+  transform: translate(-50%, -50%)scale(1);
+}
+
 .modal{
   text-align: center;
   background: rgba(64, 64, 64, 0.7);
@@ -388,9 +388,52 @@ li .fa-search{
   display: flex;
   animation: append-animate .4s ease;
 }
+.hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    overflow-y:scroll;
+  overflow-x:hidden;
+  overflow: auto;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index: -999;
+  max-height: calc(100% - 50px);
+  background-color: var(--background-color);
+  }
+  .hero img{
+    width: 65%;
+    margin-left: 20px;
+    padding-top: 30px;
+  }
+  .hero h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.6rem;
+    line-height: 2.6rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    width: 60%;
+  
+  }
+  .hero p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 0.8rem;
+    line-height: 1.5rem;
+    width: 50%;
+    margin: 0;
+    margin-bottom: 1rem;
+  
+  }
 
 /* MOBILE STYLE */
-@media (max-width:600px) {
+
 
 
 
@@ -398,6 +441,9 @@ li .fa-search{
   .main-container{
     padding: 10px;
 
+  }
+  .hero-section{
+    height: 100vh;
   }
   .hero{
     display: flex;
@@ -454,71 +500,32 @@ li .fa-search{
     left:0;
   }
   /* CARD RESULTS FROM SEARCH */
+  @media (max-width:600px) {
   .card-container{
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    transition: none;
+ 
     flex-basis: 100%;
-    justify-content:flex-start;
-    list-style: none;
-    background-color: rgba(0, 0, 0, 0.30);
-    backdrop-filter: blur(20px);
-     -webkit-backdrop-filter: blur(20px);
-     border:1px solid rgba(255, 255, 255, 0.18);
-     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.27);
-     transition: all 300ms ease;
-     z-index: 66;
-
-  }
-  .card-container:hover{
-    background-color: rgba(0, 0, 0, 0.56);
-  
-  }
-
-  
-  .card-container:hover{
-
   }
   .card-img{
-      max-width: 100px;
-      max-height: 100px;
+    max-width: 100px;
+    max-height: 100px;
   }
   .drink-name{
     font-size: 1.4rem;
-  }
+}
   .drink-instructions{
     font-size: 0.8rem;
   }
+}
+    .card-container:hover{
+      background-color: rgba(0, 0, 0, 0.56);
+    }
+
+ 
 
 
   /* POP UP modal */
-  .modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.25s ease-out;
-  }
-  .modal.open{
-    opacity: 1;
-    pointer-events: all;
-  }
-  .modal-name{
 
-  }
-  .modal-img{
 
-  }
-  .modal-img.open{
-    transform: translate(-50%, -50%)scale(1);
-  }
-
-}
 
 @keyframes append-animate {
 	from {
