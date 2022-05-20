@@ -9,7 +9,7 @@ const searchBtn = document.getElementById('search-btn')
 const alphabetBtn = document.getElementById('alphabet-btn')
 const spiritsBtn = document.getElementById('spirits-btn')
 const randomBtn = document.getElementById('random-btn')
-const primaryBtn = document.querySelector('.primary-btn').addEventListener('click', searchBar)
+const primaryBtn = document.querySelector('#primary-btn').addEventListener('click', searchBar)
 
 const searchContainer = document.querySelector('.nav-bottom-container')
 const alphabetContainer = document.querySelector('.alphabet-container')
@@ -19,12 +19,20 @@ const randomContainer =  document.querySelector('.random-drink-container')
 const closeBtn = document.querySelectorAll('button')
 
 const mainContainer = document.querySelector('.main-container')
+const clickOff = document.querySelector('.hero').addEventListener('click', (e) => {
+  if(e.target.classList.contains('click-off')){
+  close()
+
+}
+})
 
 searchBtn.addEventListener('click', searchBar)
 // primaryBtn.addEventListener('click', searchBar)
 
 closeBtn.forEach(button => 
-  button.addEventListener('click', function close(){
+  button.addEventListener('click', close))
+  
+function close(){
     document.documentElement.style.setProperty('--background-color', '#FDFFE4');
     alphabetContainer.classList.remove('hide')
     spiritContainer.classList.remove('hide')
@@ -33,12 +41,11 @@ closeBtn.forEach(button =>
     mainContainer.style.marginTop = "80px"
     list.innerHTML = ""
 
-  })
-)
+  }
      
 
 function searchBar(){
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       searchContainer.classList.add('hide')
 
@@ -52,7 +59,7 @@ function searchBar(){
      }
 
 alphabetBtn.addEventListener('click', () => {
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       alphabetContainer.classList.add('hide')
 
@@ -66,7 +73,7 @@ alphabetBtn.addEventListener('click', () => {
 
      })
 spiritsBtn.addEventListener('click', () => {
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.add('hide')
@@ -76,7 +83,7 @@ spiritsBtn.addEventListener('click', () => {
      })
 randomBtn.addEventListener('click', () => {
 
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       mainContainer.style.marginTop = "80px"
       alphabetContainer.classList.remove('hide')
@@ -199,7 +206,7 @@ const fetchData = (data) => {
 //variable to create HTML with a param for data
 const createItem = (result) => {
 
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+
       fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
       .then(res => res.json()) // parse response as JSON
       .then(data => {

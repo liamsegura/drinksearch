@@ -1,6 +1,6 @@
 
 :root{
-  --background-color: #FDFFE4;
+  --background-color: #eaeccd;
   --button-color: #327D38;
   --button-hover-color: #699368;
 }
@@ -24,7 +24,9 @@
 }
 /******************************************
 /* LAYOUT
-/*******************************************/
+/******************************************
+
+*/
 html{
   margin: 0;
 	padding: 0;
@@ -395,7 +397,7 @@ li .fa-search{
     justify-content: center;
     text-align: center;
     padding-top: 100px;
-    padding-bottom: 30px;
+    padding-bottom: 100vh;
     overflow-y:scroll;
   overflow-x:hidden;
   overflow: auto;
@@ -403,7 +405,6 @@ li .fa-search{
   top:0;
   left:0;
   z-index: -999;
-  max-height: calc(100% - 50px);
   background-color: var(--background-color);
   }
   .hero img{
@@ -453,7 +454,7 @@ li .fa-search{
     text-align: center;
     padding-top: 100px;
     background: var(--background-color);
-    padding-bottom: 30px;
+    padding-bottom: 100vh;
   }
   .hero img{
     width: 65%;
@@ -480,7 +481,7 @@ li .fa-search{
     margin-bottom: 1rem;
   
   }
-  .primary-btn{
+  #primary-btn{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
@@ -488,6 +489,7 @@ li .fa-search{
     border-radius: 15px;
     background-color: var(--button-color);
     color: white;
+    z-index: -998;
   }
   #blob{
     overflow-y:scroll;
