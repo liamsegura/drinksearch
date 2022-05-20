@@ -9,7 +9,7 @@ const searchBtn = document.getElementById('search-btn')
 const alphabetBtn = document.getElementById('alphabet-btn')
 const spiritsBtn = document.getElementById('spirits-btn')
 const randomBtn = document.getElementById('random-btn')
-const primaryBtn = document.querySelector('.primary-btn')
+const primaryBtn = document.querySelector('.primary-btn').addEventListener('click', searchBar)
 
 const searchContainer = document.querySelector('.nav-bottom-container')
 const alphabetContainer = document.querySelector('.alphabet-container')
@@ -21,10 +21,11 @@ const closeBtn = document.querySelectorAll('button')
 const mainContainer = document.querySelector('.main-container')
 
 searchBtn.addEventListener('click', searchBar)
-primaryBtn.addEventListener('click', searchBar)
+// primaryBtn.addEventListener('click', searchBar)
+
 closeBtn.forEach(button => 
   button.addEventListener('click', function close(){
-    document.documentElement.style.setProperty('--background-color', '#FDFFE4');
+    // document.documentElement.style.setProperty('--background-color', '#FDFFE4');
     alphabetContainer.classList.remove('hide')
     spiritContainer.classList.remove('hide')
     randomContainer.classList.remove('hide')
@@ -37,7 +38,7 @@ closeBtn.forEach(button =>
      
 
 function searchBar(){
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  // document.documentElement.style.setProperty('--background-color', '#daddbc');
   list.innerHTML = ""
       searchContainer.classList.add('hide')
 
@@ -51,7 +52,7 @@ function searchBar(){
      }
 
 alphabetBtn.addEventListener('click', () => {
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  // document.documentElement.style.setProperty('--background-color', '#daddbc');
   list.innerHTML = ""
       alphabetContainer.classList.add('hide')
 
@@ -65,7 +66,7 @@ alphabetBtn.addEventListener('click', () => {
 
      })
 spiritsBtn.addEventListener('click', () => {
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  // document.documentElement.style.setProperty('--background-color', '#daddbc');
   list.innerHTML = ""
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.add('hide')
@@ -75,7 +76,7 @@ spiritsBtn.addEventListener('click', () => {
      })
 randomBtn.addEventListener('click', () => {
 
-  document.documentElement.style.setProperty('--background-color', '#daddbc');
+  // document.documentElement.style.setProperty('--background-color', '#daddbc');
   list.innerHTML = ""
       mainContainer.style.marginTop = "80px"
       alphabetContainer.classList.remove('hide')
