@@ -34,6 +34,7 @@ closeBtn.forEach(button =>
   
 function close(){
     document.documentElement.style.setProperty('--background-color', '#FDFFE4');
+   
     alphabetContainer.classList.remove('hide')
     spiritContainer.classList.remove('hide')
     randomContainer.classList.remove('hide')

@@ -36,6 +36,7 @@ html{
 }
 body{
   background: var(--background-color);
+  height:100%
 }
 main{
 
@@ -397,7 +398,6 @@ li .fa-search{
     justify-content: center;
     text-align: center;
     padding-top: 100px;
-    padding-bottom: 100vh;
     overflow-y:scroll;
   overflow-x:hidden;
   overflow: auto;
@@ -406,6 +406,7 @@ li .fa-search{
   left:0;
   z-index: -999;
   background-color: var(--background-color);
+  height:100%
   }
   .hero img{
     width: 65%;
@@ -454,7 +455,7 @@ li .fa-search{
     text-align: center;
     padding-top: 100px;
     background: var(--background-color);
-    padding-bottom: 100vh;
+    height:100%
   }
   .hero img{
     width: 65%;
