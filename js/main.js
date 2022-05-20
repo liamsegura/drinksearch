@@ -45,7 +45,7 @@ function close(){
      
 
 function searchBar(){
-  document.documentElement.style.setProperty('--background-color', '#eaeccd');
+  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       searchContainer.classList.add('hide')
 
@@ -59,7 +59,7 @@ function searchBar(){
      }
 
 alphabetBtn.addEventListener('click', () => {
-  document.documentElement.style.setProperty('--background-color', '#eaeccd');
+  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       alphabetContainer.classList.add('hide')
 
@@ -73,7 +73,7 @@ alphabetBtn.addEventListener('click', () => {
 
      })
 spiritsBtn.addEventListener('click', () => {
-  document.documentElement.style.setProperty('--background-color', '#eaeccd');
+  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.add('hide')
@@ -83,7 +83,7 @@ spiritsBtn.addEventListener('click', () => {
      })
 randomBtn.addEventListener('click', () => {
 
-  document.documentElement.style.setProperty('--background-color', '#eaeccd');
+  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
   list.innerHTML = ""
       mainContainer.style.marginTop = "80px"
       alphabetContainer.classList.remove('hide')
@@ -205,7 +205,7 @@ const fetchData = (data) => {
 
 //variable to create HTML with a param for data
 const createItem = (result) => {
-
+  document.documentElement.style.setProperty('--background-color', '#eaeccd');
 
       fetch(` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${ result.idDrink }`)
       .then(res => res.json()) // parse response as JSON
