@@ -1,3 +1,4 @@
+
 //results list
 const list = document.querySelector('.results')
 
@@ -9,7 +10,6 @@ const searchBtn = document.getElementById('search-btn')
 const alphabetBtn = document.getElementById('alphabet-btn')
 const spiritsBtn = document.getElementById('spirits-btn')
 const randomBtn = document.getElementById('random-btn')
-const primaryBtn = document.querySelector('#primary-btn').addEventListener('click', searchBar)
 
 const searchContainer = document.querySelector('.nav-bottom-container')
 const alphabetContainer = document.querySelector('.alphabet-container')
@@ -19,12 +19,13 @@ const randomContainer =  document.querySelector('.random-drink-container')
 const closeBtn = document.querySelectorAll('button')
 
 const mainContainer = document.querySelector('.main-container')
-const clickOff = document.querySelector('.hero').addEventListener('click', (e) => {
-  if(e.target.classList.contains('click-off')){
-  close()
+const clickOff = document.querySelector('.hero').addEventListener('click', close)
 
-}
+
+document.querySelector('span').addEventListener('click', () => {
+  console.log('help')
 })
+
 
 searchBtn.addEventListener('click', searchBar)
 // primaryBtn.addEventListener('click', searchBar)
@@ -33,6 +34,7 @@ closeBtn.forEach(button =>
   button.addEventListener('click', close))
   
 function close(){
+  console.log('closed')
     document.documentElement.style.setProperty('--background-color', '#FDFFE4');
    
     alphabetContainer.classList.remove('hide')
@@ -281,4 +283,3 @@ const createItem = (result) => {
         console.log(`error ${err}`)
     })
   }
-
