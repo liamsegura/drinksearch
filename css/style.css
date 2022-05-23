@@ -92,7 +92,7 @@ button svg{
 margin-bottom: 2px;
 margin-left: 6px;
 }
-#search-btn{
+.search-btn{
   padding: 10px;
   border-radius: 15px;
   background-color: var(--button-color);
@@ -484,7 +484,7 @@ li .fa-search{
     margin-bottom: 1rem;
   
   }
-  #primary-btn{
+  .primary-btn{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
@@ -557,7 +557,7 @@ li .fa-search{
     margin-bottom: 1rem;
   
   }
-  #primary-btn{
+  .primary-btn{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
@@ -651,7 +651,7 @@ li .fa-search{
     margin-bottom: 1rem;
   
   }
-  #primary-btn{
+  .primary-btn{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.2rem;
@@ -714,7 +714,7 @@ li .fa-search{
     margin-bottom: 1rem;
   
   }
-  #primary-btn{
+  .primary-btn{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.8rem;

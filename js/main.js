@@ -6,10 +6,11 @@ const list = document.querySelector('.results')
 const modalSection = document.querySelector('.model-section')
 
 
-const searchBtn = document.getElementById('search-btn')
+const searchBtn = document.querySelectorAll('.searchEvent')
 const alphabetBtn = document.getElementById('alphabet-btn')
 const spiritsBtn = document.getElementById('spirits-btn')
 const randomBtn = document.getElementById('random-btn')
+
 
 const searchContainer = document.querySelector('.nav-bottom-container')
 const alphabetContainer = document.querySelector('.alphabet-container')
@@ -19,7 +20,7 @@ const randomContainer =  document.querySelector('.random-drink-container')
 const closeBtn = document.querySelectorAll('button')
 
 const mainContainer = document.querySelector('.main-container')
-const clickOff = document.querySelector('.hero').addEventListener('click', close)
+// const clickOff = document.querySelector('.hero').addEventListener('click', close)
 
 
 document.querySelector('span').addEventListener('click', () => {
@@ -27,14 +28,16 @@ document.querySelector('span').addEventListener('click', () => {
 })
 
 
-searchBtn.addEventListener('click', searchBar)
-// primaryBtn.addEventListener('click', searchBar)
+searchBtn.forEach(btn => btn.addEventListener('click', searchBar))
+
 
 closeBtn.forEach(button => 
   button.addEventListener('click', close))
   
-function close(){
+function close(e){
+  e.stopPropagation()
   console.log('closed')
+  
     document.documentElement.style.setProperty('--background-color', '#FDFFE4');
    
     alphabetContainer.classList.remove('hide')
@@ -47,8 +50,10 @@ function close(){
   }
      
 
-function searchBar(){
+function searchBar(e){
+  e.stopPropagation()
   // document.documentElement.style.setProperty('--background-color', '#eaeccd');
+  console.log('cl')
   list.innerHTML = ""
       searchContainer.classList.add('hide')
 
@@ -60,6 +65,7 @@ function searchBar(){
 
       mainContainer.style.marginTop = "95px"
      }
+
 
 alphabetBtn.addEventListener('click', () => {
   // document.documentElement.style.setProperty('--background-color', '#eaeccd');
