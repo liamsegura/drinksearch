@@ -20,7 +20,7 @@ const randomContainer =  document.querySelector('.random-drink-container')
 const closeBtn = document.querySelectorAll('button')
 
 const mainContainer = document.querySelector('.main-container')
-// const clickOff = document.querySelector('.hero').addEventListener('click', close)
+const clickOff = document.querySelector('.hero').addEventListener('click', close)
 
 
 document.querySelector('span').addEventListener('click', () => {
