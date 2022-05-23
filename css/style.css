@@ -445,8 +445,8 @@ li .fa-search{
     padding: 10px;
 
   }
-  .hero-section{
-
+  .hero-column{
+    padding-top: 80px;
   }
   .hero{
     display: flex;
@@ -530,6 +530,7 @@ li .fa-search{
     text-align: center;
     justify-content: center;
     align-items: center;  
+    padding-top: 0px;
   }
  
   .hero img{
