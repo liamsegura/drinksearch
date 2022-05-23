@@ -198,9 +198,9 @@ li .fa-search{
 /* ALPHABET */
 .alphabet-container{
   display: none;
-  justify-content: start;
-  align-items: start;
-  padding: 0px 10px 0px 10px;
+  justify-content: end;
+  align-items: end;
+    padding: 0px 10px 0px 650px;
   height: 85px;
 }
 .alphabet{
@@ -581,6 +581,12 @@ li .fa-search{
     width: 100%;
     padding: 0px 10px 0px 100px;
   }
+  .alphabet-container{
+    padding: 0px 10px 0px 10px;
+  }
+  .spirits-container{
+    padding: 0px 10px 0px 10px;
+  }
 }
   /* POP UP modal */
 
@@ -675,6 +681,12 @@ li .fa-search{
     width: 100%;
     padding: 0px 30px 0px 300px;
   }
+  .alphabet-container{
+    padding: 0px 30px 0px 350px;
+  }
+  .spirits-container{
+    padding: 0px 30px 0px 350px;
+  }
 }
 
 @media (min-width:1000px){
@@ -738,4 +750,23 @@ li .fa-search{
     width: 100%;
     padding: 0px 60px 0px 800px;
   }
+  .alphabet-container{
+   
+      padding: 0px 60px 0px 650px;
+    
+  }
+  .spirits-container{
+    padding: 0px 60px 0px 650px;
+  }
+}
+
+@media (min-width:1200px){
+  .alphabet-container{
+   
+    padding: 0px 60px 0px 850px;
+  
+}
+.spirits-container{
+  padding: 0px 60px 0px 850px;
+}
 }
