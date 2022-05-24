@@ -23,6 +23,7 @@ const mainContainer = document.querySelector('.main-container')
 const clickOff = document.querySelector('.hero').addEventListener('click', close)
 
 
+
 document.querySelector('span').addEventListener('click', () => {
   console.log('help')
 })
