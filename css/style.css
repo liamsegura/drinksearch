@@ -428,12 +428,12 @@ li .fa-search{
   .hero p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
-    width: 50%;
+    width: 42%;
     margin: 0;
     margin-bottom: 1rem;
-  
+    display: inline-block;
   }
 
 /* MOBILE STYLE */
@@ -478,14 +478,14 @@ li .fa-search{
   .hero p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     width: 50%;
     margin: 0;
     margin-bottom: 1rem;
-  
+    display: inline-block;
   }
-  div > p + span{
+  div + span{
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 1.5rem;
@@ -493,6 +493,7 @@ li .fa-search{
     border-radius: 15px;
     background-color: var(--button-color);
     color: white;
+    margin-top: 15px;
   }
   #blob{
     overflow-y:scroll;
@@ -551,12 +552,12 @@ li .fa-search{
   .hero p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
-    width: 50%;
+    width: 42%;
     margin: 0;
     margin-bottom: 1rem;
-  
+    display: inline-block;
   }
   div > p + span{
     font-family: 'Poppins', sans-serif;
@@ -650,12 +651,12 @@ li .fa-search{
   .hero p{
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.5rem;
     width: 50%;
     margin: 0;
     margin-bottom: 1rem;
-  
+    display: inline-block;
   }
   div > p + span{
     font-family: 'Poppins', sans-serif;
@@ -727,10 +728,10 @@ li .fa-search{
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.5rem;
-    width: 50%;
+    width: 39%;
     margin: 0;
     margin-bottom: 1rem;
-  
+    display: inline-block;
   }
   div > p + span{
     font-family: 'Poppins', sans-serif;
@@ -878,7 +879,7 @@ li .fa-search{
     width: 40%;
     margin: 0;
     margin-bottom: 1rem;
-  
+    display: inline-block;
   }
   h1 + p + span{
     font-family: 'Poppins', sans-serif;
@@ -918,4 +919,8 @@ li .fa-search{
 .counter{
   font-size: 1.5rem!important;
   font-weight: 600!important;
+}
+.sameline{
+  white-space: nowrap;
+  margin-right: 5px;
 }
