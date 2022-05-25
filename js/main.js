@@ -281,7 +281,7 @@ const createItem = (result) => {
                                     <span class="drink-ingredient">${ returned.strIngredient3 }</span>
                                     <span class="drink-ingredient">${ returned.strIngredient4 }</span>
                                   </div>
-                                  <span class="modal-instructions">${ returned.strInstructions }</span>
+                                  <p class="modal-instructions">${ returned.strInstructions }</p>
                                   </div>
                                   `            
                 console.log('test')
