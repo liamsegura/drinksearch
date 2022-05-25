@@ -609,7 +609,15 @@ li .fa-search{
 .new-box {
 	animation: append-animate .4s ease;
 }
-
+@media (min-width:600px){
+  .modal-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 12rem;
+  }
+}
 @media (min-width:700px){
   .hero{
     display: flex;
@@ -693,7 +701,7 @@ li .fa-search{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem 34rem;
+    margin: 2rem 18rem;
   }
 }
 
@@ -764,6 +772,9 @@ li .fa-search{
   }
   .spirits-container{
     padding: 0px 60px 0px 650px;
+  }
+  .modal-container{
+    margin: 2rem 35rem;
   }
 }
 

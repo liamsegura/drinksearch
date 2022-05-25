@@ -58,7 +58,7 @@ function close(e){
   e.stopPropagation()
   console.log('closed')
   
-    document.documentElement.style.setProperty('--background-color', '#FDFFE4');
+    document.documentElement.style.setProperty('--background-color', '#feffef');
    
     alphabetContainer.classList.remove('hide')
     spiritContainer.classList.remove('hide')
