@@ -1,4 +1,4 @@
-
+getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING);
 // Selector
 const counters = document.querySelectorAll('.counter');
 // Main function

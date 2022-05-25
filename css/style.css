@@ -736,7 +736,7 @@ li .fa-search{
     font-weight: 300;
     font-size: 1rem;
     line-height: 1.5rem;
-    width: 39%;
+    width: 30%;
     margin: 0;
     margin-bottom: 1rem;
     display: inline-block;
@@ -921,6 +921,140 @@ li .fa-search{
   }
   .spirits-container{
     padding: 0px 10px 0px 10px;
+  }
+}
+@media (max-width:360px) {
+  #logo{
+    margin-bottom: 2px;
+    margin-left: 6px;
+    width: 100px
+    }
+  .search-btn{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    height: 35px;
+    width: 45px;
+    list-style: none;
+    margin-left: 5px;
+  }
+  #alphabet-btn{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    height: 35px;
+    width: 45px;
+    list-style: none;
+    margin-left: 5px;
+  }
+  #spirits-btn{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    width: 45px; 
+    height: 35px;
+    list-style: none;
+    margin-left: 5px;
+  }
+  #random-btn{
+    padding: 10px;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    width: 45px; 
+    height: 35px;
+    list-style: none;
+    margin-left: 5px;
+  }
+  #close-btn{
+    padding: 0px;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    height: 35px;
+    width: 25px;
+    list-style: none;
+    margin-right: 15px;
+  }
+  .card-container{
+ 
+    flex-basis: 100%;
+  }
+  .card-img{
+    max-width: 100px;
+    max-height: 100px;
+  }
+  .drink-name{
+    font-size: 1.4rem;
+}
+  .drink-instructions{
+    font-size: 0.8rem;
+  }
+
+   .card-container:hover{
+      background-color: rgba(0, 0, 0, 0.56);
+  }
+  .hero-column{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;  
+    padding-top: 0px;
+  }
+ 
+  .hero img{
+    width: 65%;
+    margin-left: 20px;
+    padding-top: 30px;
+  }
+  .hero h1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    line-height: 1.8rem;
+    margin: 0;
+    margin-bottom: 1rem;
+    width: 80%;
+  
+  }
+  .hero p{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 1.4rem;
+    width: 40%;
+    margin: 0;
+    margin-bottom: 1rem;
+    display: inline-block;
+  }
+  h1 + p + span{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border-radius: 15px;
+    background-color: var(--button-color);
+    color: white;
+  }
+  .nav-container{
+
+    padding: 10px 10px 0px 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-color);
+    height:60px;
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0px 10px 0px 100px;
+  }
+  .spirits-container{
+    padding: 0px 10px 0px 10px;
+  }
+  .alphabet span{
+    font-size: 1.2rem;
   }
 }
 .nomargin{
