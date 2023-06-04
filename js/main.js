@@ -72,7 +72,7 @@ function close(e){
 
 function searchBar(e){
   e.stopPropagation()
-  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
+
   console.log('cl')
   list.innerHTML = ""
       searchContainer.classList.add('hide')
@@ -88,7 +88,7 @@ function searchBar(e){
 
 
 alphabetBtn.addEventListener('click', () => {
-  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
+
   list.innerHTML = ""
       alphabetContainer.classList.add('hide')
 
@@ -102,7 +102,7 @@ alphabetBtn.addEventListener('click', () => {
 
      })
 spiritsBtn.addEventListener('click', () => {
-  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
+  
   list.innerHTML = ""
       alphabetContainer.classList.remove('hide')
       spiritContainer.classList.add('hide')
@@ -112,7 +112,7 @@ spiritsBtn.addEventListener('click', () => {
      })
 randomBtn.addEventListener('click', () => {
 
-  // document.documentElement.style.setProperty('--background-color', '#eaeccd');
+
   list.innerHTML = ""
       mainContainer.style.marginTop = "80px"
       alphabetContainer.classList.remove('hide')
