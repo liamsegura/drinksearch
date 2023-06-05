@@ -508,6 +508,8 @@ li .fa-search{
   }
   /* CARD RESULTS FROM SEARCH */
   @media (max-width:699px) {
+
+   
   .card-container{
  
     flex-basis: 100%;
@@ -620,6 +622,12 @@ li .fa-search{
   }
 }
 @media (min-width:700px){
+  .counter{
+    font-size: 1.5rem!important;
+    font-weight: 600!important;
+    padding-left: 0rem;
+  font-family: Corsiva Hebrew;
+  }
   .hero{
     display: flex;
     flex-direction: row-reverse;
@@ -713,7 +721,7 @@ li .fa-search{
     text-align: start;
     justify-content: start;
     align-items: flex-start ;
-    padding-left: 50px;
+    padding-left: 100px;
     width: 100%;
 
   }
@@ -1065,6 +1073,8 @@ li .fa-search{
 .counter{
   font-size: 1.5rem!important;
   font-weight: 600!important;
+  padding-left: 0.5rem;
+font-family: Corsiva Hebrew;
 }
 .sameline{
   white-space: nowrap;

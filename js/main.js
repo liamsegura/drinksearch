@@ -120,11 +120,6 @@ randomBtn.addEventListener('click', () => {
       searchContainer.classList.remove('hide')
      })
 
-// alphabetBtn.addEventListener('.')
-// spiritsBtn.addEventListener('.spirits-btn')
-// randomBtn.addEventListener('.random-btn')
-
-
 
 
 //empty variable for tracking timeouts
