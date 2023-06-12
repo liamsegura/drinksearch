@@ -5,4 +5,4 @@ complete with images and instructions on how to make the drink!
 Check it out here:
 
 
-https://cocktailfinderapi.netlify.app
+https://drinksearchh.netlify.app
