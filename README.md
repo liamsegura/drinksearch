@@ -43,4 +43,4 @@ Issues Faced
 –CSS-related challenges included managing overlapping elements and ensuring proper floating behavior.
 –JavaScript was utilized to handle closing the mobile soft keyboard on scroll and to set a timeout for the dynamic search functionality.
 
-<a href="https://drinksearchh.netlify.app">drinksearch</a>
+[Visit drinksearch]:https://drinksearchh.netlify.app
