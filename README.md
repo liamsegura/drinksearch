@@ -1,6 +1,7 @@
 Drinksearch is a user-friendly bar app that allows customers to scan barcodes and access a virtual drinks menu. With an iOS-inspired design, it provides information of up to 100 drinks, including ingredients and instructions.
 
-[https://www.liamsegura.com/assets/images/design.jpg]
+
+<img width="301" alt="img" src="https://www.liamsegura.com/assets/images/design.jpg">
 
 Functionality
 
